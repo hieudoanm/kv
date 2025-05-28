@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://hieudoanm.github.io/atomic</loc>
+		<priority>1.0</priority>
+		<changefreq>weekly</changefreq>
+	</url>
+	<!-- Assets -->
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/assets/colors</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/assets/emojis</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/assets/fonts</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/assets/icons</loc>
+	</url>
+	<!-- React -->
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/react/contexts</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/react/hooks</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/react/router</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/react/virtual-table</loc>
+	</url>
+	<!-- UI -->
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/ui/charts</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/ui/kit</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/ui/block</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/ui/templates</loc>
+	</url>
+	<!-- Tools -->
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/tools/log</loc>
+	</url>
+	<url>
+		<loc>https://hieudoanm.github.io/atomic/tools/utils</loc>
+	</url>
+</urlset>
