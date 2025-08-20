@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "dompurify": "3.2.6",
-    "next": "15.4.7",
+    "next": "15.5.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "shiki": "3.10.0"
@@ -52,7 +52,7 @@
     "@types/react-dom": "19.1.7",
     "@types/web-bluetooth": "0.0.21",
     "eslint": "9.33.0",
-    "eslint-config-next": "15.4.7",
+    "eslint-config-next": "15.5.0",
     "husky": "9.1.7",
     "kill-port": "2.0.1",
     "prettier": "3.6.2",
