@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "atomic/code",
-  "packageManager": "pnpm@10.16.0",
+  "packageManager": "pnpm@10.16.1",
   "keywords": [
     "atomic",
     "blocks",
@@ -48,7 +48,7 @@
     "@eslint/eslintrc": "3.3.1",
     "@tailwindcss/postcss": "4.1.13",
     "@types/node": "24.3.3",
-    "@types/react": "19.1.12",
+    "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "@types/web-bluetooth": "0.0.21",
     "eslint": "9.35.0",
