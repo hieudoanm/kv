@@ -33,11 +33,11 @@
       data-next-font="size-adjust" />
     <link
       rel="preload"
-      href="/atomic/_next/static/css/676b7bc665841e00.css"
+      href="/atomic/_next/static/css/52afa8e2426e2a90.css"
       as="style" />
     <link
       rel="stylesheet"
-      href="/atomic/_next/static/css/676b7bc665841e00.css"
+      href="/atomic/_next/static/css/52afa8e2426e2a90.css"
       data-n-g="" />
     <noscript data-n-css=""></noscript>
     <script
@@ -45,37 +45,37 @@
       nomodule=""
       src="/atomic/_next/static/chunks/polyfills-42372ed130431b0a.js"></script>
     <script
-      src="/atomic/_next/static/chunks/webpack-2e4ba50be6ab594c.js"
+      src="/atomic/_next/static/chunks/webpack-05bf249869c4a31a.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/framework-50228cc8e4e878a0.js"
+      src="/atomic/_next/static/chunks/framework-51941a1bb13136a6.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/main-dfcec82c1b880572.js"
+      src="/atomic/_next/static/chunks/main-19e16629b9452984.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/pages/_app-57c3fa31837e3489.js"
+      src="/atomic/_next/static/chunks/pages/_app-a2ce2cfbe4282519.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/1385-3623f656826c598a.js"
+      src="/atomic/_next/static/chunks/5570-e2922569aad4bbe8.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/4119-8d67af22a096d8ee.js"
+      src="/atomic/_next/static/chunks/6259-b8dce3e5b5da74cb.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/8809-018e494d6cb6fa4d.js"
+      src="/atomic/_next/static/chunks/8372-28886a25ca4d977d.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/699-b5d1024bc9f1770b.js"
+      src="/atomic/_next/static/chunks/9018-b803e964085a9138.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/pages/react/hooks-d8dfee60be70e686.js"
+      src="/atomic/_next/static/chunks/pages/react/hooks-13f4c9bbae53d10c.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/62q9moSDFvovvIiPs2uKS/_buildManifest.js"
+      src="/atomic/_next/static/OkNORFqa090pbQ93Cxwtq/_buildManifest.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/62q9moSDFvovvIiPs2uKS/_ssgManifest.js"
+      src="/atomic/_next/static/OkNORFqa090pbQ93Cxwtq/_ssgManifest.js"
       defer=""></script>
   </head>
   <body class="antialiased">
@@ -1340,21 +1340,21 @@
                 "group": "boolean",
                 "name": "useToggle",
                 "emoji": "🔀",
-                "code": "import { Dispatch, SetStateAction, useCallback, useState } from 'react';\n\nexport const useToggle = (\n  defaultValue?: boolean\n): { value: boolean; setValue: Dispatch\u003cSetStateAction\u003cboolean\u003e\u003e; toggle: () =\u003e void } =\u003e {\n  const [value, setValue] = useState(!!defaultValue);\n\n  const toggle = useCallback(() =\u003e {\n    setValue((x) =\u003e !x);\n  }, []);\n\n  return { value, toggle, setValue };\n};\n"
+                "code": "import { Dispatch, SetStateAction, useCallback, useState } from 'react';\n\nexport const useToggle = (\n  defaultValue?: boolean\n): {\n  value: boolean;\n  setValue: Dispatch\u003cSetStateAction\u003cboolean\u003e\u003e;\n  toggle: () =\u003e void;\n} =\u003e {\n  const [value, setValue] = useState(!!defaultValue);\n\n  const toggle = useCallback(() =\u003e {\n    setValue((x) =\u003e !x);\n  }, []);\n\n  return { value, toggle, setValue };\n};\n"
               },
               {
                 "id": "events-use-keyboard",
                 "group": "events",
                 "name": "useKeyboard",
                 "emoji": "⌨️",
-                "code": "import { useEffect, useState, useCallback } from 'react';\n\ninterface UseKeyboardOptions {\n  onKeyDown?: (event: KeyboardEvent) =\u003e void;\n  onKeyUp?: (event: KeyboardEvent) =\u003e void;\n  onKeyPress?: (event: KeyboardEvent) =\u003e void; // Note: keypress is deprecated but included if needed\n}\n\nexport const useKeyboard = ({ onKeyDown, onKeyUp, onKeyPress }: UseKeyboardOptions = {}) =\u003e {\n  const [pressedKeys, setPressedKeys] = useState\u003cSet\u003cstring\u003e\u003e(new Set());\n\n  const handleKeyDown = useCallback(\n    (event: KeyboardEvent) =\u003e {\n      setPressedKeys((prev) =\u003e {\n        if (!prev.has(event.key)) {\n          const newSet = new Set(prev);\n          newSet.add(event.key);\n          return newSet;\n        }\n        return prev;\n      });\n      onKeyDown?.(event);\n    },\n    [onKeyDown]\n  );\n\n  const handleKeyUp = useCallback(\n    (event: KeyboardEvent) =\u003e {\n      setPressedKeys((prev) =\u003e {\n        if (prev.has(event.key)) {\n          const newSet = new Set(prev);\n          newSet.delete(event.key);\n          return newSet;\n        }\n        return prev;\n      });\n      onKeyUp?.(event);\n    },\n    [onKeyUp]\n  );\n\n  const handleKeyPress = useCallback(\n    (event: KeyboardEvent) =\u003e {\n      onKeyPress?.(event);\n    },\n    [onKeyPress]\n  );\n\n  useEffect(() =\u003e {\n    window.addEventListener('keydown', handleKeyDown);\n    window.addEventListener('keyup', handleKeyUp);\n    if (onKeyPress) {\n      window.addEventListener('keypress', handleKeyPress);\n    }\n\n    return () =\u003e {\n      window.removeEventListener('keydown', handleKeyDown);\n      window.removeEventListener('keyup', handleKeyUp);\n      if (onKeyPress) {\n        window.removeEventListener('keypress', handleKeyPress);\n      }\n    };\n  }, [handleKeyDown, handleKeyUp, handleKeyPress, onKeyPress]);\n\n  return {\n    pressedKeys, // Set of currently pressed keys\n  };\n};\n"
+                "code": "import { useEffect, useState, useCallback } from 'react';\n\ninterface UseKeyboardOptions {\n  onKeyDown?: (event: KeyboardEvent) =\u003e void;\n  onKeyUp?: (event: KeyboardEvent) =\u003e void;\n  onKeyPress?: (event: KeyboardEvent) =\u003e void; // Note: keypress is deprecated but included if needed\n}\n\nexport const useKeyboard = ({\n  onKeyDown,\n  onKeyUp,\n  onKeyPress,\n}: UseKeyboardOptions = {}) =\u003e {\n  const [pressedKeys, setPressedKeys] = useState\u003cSet\u003cstring\u003e\u003e(new Set());\n\n  const handleKeyDown = useCallback(\n    (event: KeyboardEvent) =\u003e {\n      setPressedKeys((prev) =\u003e {\n        if (!prev.has(event.key)) {\n          const newSet = new Set(prev);\n          newSet.add(event.key);\n          return newSet;\n        }\n        return prev;\n      });\n      onKeyDown?.(event);\n    },\n    [onKeyDown]\n  );\n\n  const handleKeyUp = useCallback(\n    (event: KeyboardEvent) =\u003e {\n      setPressedKeys((prev) =\u003e {\n        if (prev.has(event.key)) {\n          const newSet = new Set(prev);\n          newSet.delete(event.key);\n          return newSet;\n        }\n        return prev;\n      });\n      onKeyUp?.(event);\n    },\n    [onKeyUp]\n  );\n\n  const handleKeyPress = useCallback(\n    (event: KeyboardEvent) =\u003e {\n      onKeyPress?.(event);\n    },\n    [onKeyPress]\n  );\n\n  useEffect(() =\u003e {\n    window.addEventListener('keydown', handleKeyDown);\n    window.addEventListener('keyup', handleKeyUp);\n    if (onKeyPress) {\n      window.addEventListener('keypress', handleKeyPress);\n    }\n\n    return () =\u003e {\n      window.removeEventListener('keydown', handleKeyDown);\n      window.removeEventListener('keyup', handleKeyUp);\n      if (onKeyPress) {\n        window.removeEventListener('keypress', handleKeyPress);\n      }\n    };\n  }, [handleKeyDown, handleKeyUp, handleKeyPress, onKeyPress]);\n\n  return {\n    pressedKeys, // Set of currently pressed keys\n  };\n};\n"
               },
               {
                 "id": "events-use-media-query",
                 "group": "events",
                 "name": "useMediaQuery",
                 "emoji": "🖼️",
-                "code": "import { useState, useEffect } from 'react';\n\nexport const useMediaQuery = (query: string): boolean =\u003e {\n  const [matches, setMatches] = useState(() =\u003e window.matchMedia(query).matches);\n\n  useEffect(() =\u003e {\n    const media = window.matchMedia(query);\n    const listener = () =\u003e setMatches(media.matches);\n\n    media.addEventListener('change', listener);\n    return () =\u003e media.removeEventListener('change', listener);\n  }, [query]);\n\n  return matches;\n};\n"
+                "code": "import { useState, useEffect } from 'react';\n\nexport const useMediaQuery = (query: string): boolean =\u003e {\n  const [matches, setMatches] = useState(\n    () =\u003e window.matchMedia(query).matches\n  );\n\n  useEffect(() =\u003e {\n    const media = window.matchMedia(query);\n    const listener = () =\u003e setMatches(media.matches);\n\n    media.addEventListener('change', listener);\n    return () =\u003e media.removeEventListener('change', listener);\n  }, [query]);\n\n  return matches;\n};\n"
               },
               {
                 "id": "events-use-resize",
@@ -1375,7 +1375,7 @@
                 "group": "info",
                 "name": "useBattery",
                 "emoji": "🔋",
-                "code": "/* eslint-disable @typescript-eslint/no-explicit-any */\nimport { useEffect, useState } from 'react';\n\ninterface BatteryManager extends EventTarget {\n  charging: boolean;\n  chargingTime: number; // seconds until fully charged, or 0 if fully charged\n  dischargingTime: number; // seconds until fully discharged, or Infinity if charging\n  level: number; // battery level between 0 (empty) and 1 (full)\n\n  // Events\n  onchargingchange: ((this: BatteryManager, ev: Event) =\u003e any) | null;\n  onchargingtimechange: ((this: BatteryManager, ev: Event) =\u003e any) | null;\n  ondischargingtimechange: ((this: BatteryManager, ev: Event) =\u003e any) | null;\n  onlevelchange: ((this: BatteryManager, ev: Event) =\u003e any) | void;\n}\n\ninterface BatteryStatus {\n  charging: boolean;\n  level: number; // 0 to 1\n  chargingTime: number; // seconds\n  dischargingTime: number; // seconds\n}\n\nexport function useBatteryStatus() {\n  const [battery, setBattery] = useState\u003cBatteryStatus | null\u003e(null);\n\n  useEffect(() =\u003e {\n    let batteryManager: BatteryManager | null = null;\n\n    const updateBattery = (batt: BatteryManager) =\u003e {\n      setBattery({\n        charging: batt.charging,\n        level: batt.level,\n        chargingTime: batt.chargingTime,\n        dischargingTime: batt.dischargingTime,\n      });\n    };\n\n    (navigator as any).getBattery?.().then((batt: BatteryManager) =\u003e {\n      batteryManager = batt;\n      updateBattery(batt);\n\n      batt.addEventListener('chargingchange', () =\u003e updateBattery(batt));\n      batt.addEventListener('levelchange', () =\u003e updateBattery(batt));\n      batt.addEventListener('chargingtimechange', () =\u003e updateBattery(batt));\n      batt.addEventListener('dischargingtimechange', () =\u003e updateBattery(batt));\n    });\n\n    return () =\u003e {\n      if (!batteryManager) return;\n      batteryManager.removeEventListener('chargingchange', () =\u003e updateBattery(batteryManager!));\n      batteryManager.removeEventListener('levelchange', () =\u003e updateBattery(batteryManager!));\n      batteryManager.removeEventListener('chargingtimechange', () =\u003e updateBattery(batteryManager!));\n      batteryManager.removeEventListener('dischargingtimechange', () =\u003e updateBattery(batteryManager!));\n    };\n  }, []);\n\n  return battery;\n}\n"
+                "code": "/* eslint-disable @typescript-eslint/no-explicit-any */\nimport { useEffect, useState } from 'react';\n\ninterface BatteryManager extends EventTarget {\n  charging: boolean;\n  chargingTime: number; // seconds until fully charged, or 0 if fully charged\n  dischargingTime: number; // seconds until fully discharged, or Infinity if charging\n  level: number; // battery level between 0 (empty) and 1 (full)\n\n  // Events\n  onchargingchange: ((this: BatteryManager, ev: Event) =\u003e any) | null;\n  onchargingtimechange: ((this: BatteryManager, ev: Event) =\u003e any) | null;\n  ondischargingtimechange: ((this: BatteryManager, ev: Event) =\u003e any) | null;\n  onlevelchange: ((this: BatteryManager, ev: Event) =\u003e any) | void;\n}\n\ninterface BatteryStatus {\n  charging: boolean;\n  level: number; // 0 to 1\n  chargingTime: number; // seconds\n  dischargingTime: number; // seconds\n}\n\nexport function useBatteryStatus() {\n  const [battery, setBattery] = useState\u003cBatteryStatus | null\u003e(null);\n\n  useEffect(() =\u003e {\n    let batteryManager: BatteryManager | null = null;\n\n    const updateBattery = (batt: BatteryManager) =\u003e {\n      setBattery({\n        charging: batt.charging,\n        level: batt.level,\n        chargingTime: batt.chargingTime,\n        dischargingTime: batt.dischargingTime,\n      });\n    };\n\n    (navigator as any).getBattery?.().then((batt: BatteryManager) =\u003e {\n      batteryManager = batt;\n      updateBattery(batt);\n\n      batt.addEventListener('chargingchange', () =\u003e updateBattery(batt));\n      batt.addEventListener('levelchange', () =\u003e updateBattery(batt));\n      batt.addEventListener('chargingtimechange', () =\u003e updateBattery(batt));\n      batt.addEventListener('dischargingtimechange', () =\u003e updateBattery(batt));\n    });\n\n    return () =\u003e {\n      if (!batteryManager) return;\n      batteryManager.removeEventListener('chargingchange', () =\u003e\n        updateBattery(batteryManager!)\n      );\n      batteryManager.removeEventListener('levelchange', () =\u003e\n        updateBattery(batteryManager!)\n      );\n      batteryManager.removeEventListener('chargingtimechange', () =\u003e\n        updateBattery(batteryManager!)\n      );\n      batteryManager.removeEventListener('dischargingtimechange', () =\u003e\n        updateBattery(batteryManager!)\n      );\n    };\n  }, []);\n\n  return battery;\n}\n"
               },
               {
                 "id": "info-use-browser",
@@ -1396,7 +1396,7 @@
                 "group": "info",
                 "name": "useScreen",
                 "emoji": "🖥️",
-                "code": "import { useState, useEffect } from 'react';\n\ninterface ScreenSize {\n  width: number;\n  height: number;\n}\n\nexport const useScreen = (): ScreenSize =\u003e {\n  const [size, setSize] = useState\u003cScreenSize\u003e({\n    width: window.innerWidth,\n    height: window.innerHeight,\n  });\n\n  useEffect(() =\u003e {\n    const onResize = () =\u003e setSize({ width: window.innerWidth, height: window.innerHeight });\n\n    window.addEventListener('resize', onResize);\n\n    return () =\u003e window.removeEventListener('resize', onResize);\n  }, []);\n\n  return size;\n};\n"
+                "code": "import { useState, useEffect } from 'react';\n\ninterface ScreenSize {\n  width: number;\n  height: number;\n}\n\nexport const useScreen = (): ScreenSize =\u003e {\n  const [size, setSize] = useState\u003cScreenSize\u003e({\n    width: window.innerWidth,\n    height: window.innerHeight,\n  });\n\n  useEffect(() =\u003e {\n    const onResize = () =\u003e\n      setSize({ width: window.innerWidth, height: window.innerHeight });\n\n    window.addEventListener('resize', onResize);\n\n    return () =\u003e window.removeEventListener('resize', onResize);\n  }, []);\n\n  return size;\n};\n"
               },
               {
                 "id": "navigator-use-bluetooth",
@@ -1410,7 +1410,7 @@
                 "group": "navigator",
                 "name": "useCamera",
                 "emoji": "📷",
-                "code": "import { useEffect, useRef, useState } from 'react';\n\nexport const useCamera = () =\u003e {\n  const videoRef = useRef\u003cHTMLVideoElement | null\u003e(null);\n  const [stream, setStream] = useState\u003cMediaStream | null\u003e(null);\n  const [error, setError] = useState\u003cstring | null\u003e(null);\n\n  useEffect(() =\u003e {\n    const startCamera = async () =\u003e {\n      try {\n        const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });\n        setStream(mediaStream);\n        if (videoRef.current) {\n          videoRef.current.srcObject = mediaStream;\n        }\n      } catch (err) {\n        console.error(err);\n        setError('Camera access denied or not available');\n      }\n    };\n\n    startCamera();\n\n    return () =\u003e {\n      stream?.getTracks().forEach((track) =\u003e track.stop());\n    };\n  }, []);\n\n  return { videoRef, stream, error };\n};\n"
+                "code": "import { useEffect, useRef, useState } from 'react';\n\nexport const useCamera = () =\u003e {\n  const videoRef = useRef\u003cHTMLVideoElement | null\u003e(null);\n  const [stream, setStream] = useState\u003cMediaStream | null\u003e(null);\n  const [error, setError] = useState\u003cstring | null\u003e(null);\n\n  useEffect(() =\u003e {\n    const startCamera = async () =\u003e {\n      try {\n        const mediaStream = await navigator.mediaDevices.getUserMedia({\n          video: true,\n        });\n        setStream(mediaStream);\n        if (videoRef.current) {\n          videoRef.current.srcObject = mediaStream;\n        }\n      } catch (err) {\n        console.error(err);\n        setError('Camera access denied or not available');\n      }\n    };\n\n    startCamera();\n\n    return () =\u003e {\n      stream?.getTracks().forEach((track) =\u003e track.stop());\n    };\n  }, []);\n\n  return { videoRef, stream, error };\n};\n"
               },
               {
                 "id": "navigator-use-clipboard",
@@ -1424,7 +1424,7 @@
                 "group": "navigator",
                 "name": "useGeolocation",
                 "emoji": "📍",
-                "code": "import { useEffect, useState } from 'react';\n\ntype GeolocationState = {\n  coords: GeolocationCoordinates | null;\n  timestamp: number | null;\n  error: Error | GeolocationPositionError | null;\n};\n\nexport const useGeolocation = (watch: boolean = false, options?: PositionOptions) =\u003e {\n  const [state, setState] = useState\u003cGeolocationState\u003e({\n    coords: null,\n    timestamp: null,\n    error: null,\n  });\n\n  useEffect(() =\u003e {\n    if (!navigator.geolocation) {\n      setState((s) =\u003e ({ ...s, error: new Error('Geolocation is not supported') }));\n      return;\n    }\n\n    const onSuccess = (pos: GeolocationPosition) =\u003e {\n      setState({\n        coords: pos.coords,\n        timestamp: pos.timestamp,\n        error: null,\n      });\n    };\n\n    const onError = (err: GeolocationPositionError) =\u003e {\n      setState((s) =\u003e ({ ...s, error: err }));\n    };\n\n    let watchId: number;\n\n    if (watch) {\n      watchId = navigator.geolocation.watchPosition(onSuccess, onError, options);\n    } else {\n      navigator.geolocation.getCurrentPosition(onSuccess, onError, options);\n    }\n\n    return () =\u003e {\n      if (watch \u0026\u0026 watchId !== undefined) {\n        navigator.geolocation.clearWatch(watchId);\n      }\n    };\n  }, [watch, options]);\n\n  return state;\n};\n"
+                "code": "import { useEffect, useState } from 'react';\n\ntype GeolocationState = {\n  coords: GeolocationCoordinates | null;\n  timestamp: number | null;\n  error: Error | GeolocationPositionError | null;\n};\n\nexport const useGeolocation = (\n  watch: boolean = false,\n  options?: PositionOptions\n) =\u003e {\n  const [state, setState] = useState\u003cGeolocationState\u003e({\n    coords: null,\n    timestamp: null,\n    error: null,\n  });\n\n  useEffect(() =\u003e {\n    if (!navigator.geolocation) {\n      setState((s) =\u003e ({\n        ...s,\n        error: new Error('Geolocation is not supported'),\n      }));\n      return;\n    }\n\n    const onSuccess = (pos: GeolocationPosition) =\u003e {\n      setState({\n        coords: pos.coords,\n        timestamp: pos.timestamp,\n        error: null,\n      });\n    };\n\n    const onError = (err: GeolocationPositionError) =\u003e {\n      setState((s) =\u003e ({ ...s, error: err }));\n    };\n\n    let watchId: number;\n\n    if (watch) {\n      watchId = navigator.geolocation.watchPosition(\n        onSuccess,\n        onError,\n        options\n      );\n    } else {\n      navigator.geolocation.getCurrentPosition(onSuccess, onError, options);\n    }\n\n    return () =\u003e {\n      if (watch \u0026\u0026 watchId !== undefined) {\n        navigator.geolocation.clearWatch(watchId);\n      }\n    };\n  }, [watch, options]);\n\n  return state;\n};\n"
               },
               {
                 "id": "network-use-online",
@@ -1445,7 +1445,7 @@
                 "group": "ssr",
                 "name": "useIsomorphicLayoutEffect",
                 "emoji": "⚙️",
-                "code": "import { useEffect, useLayoutEffect } from 'react';\n\nexport const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;\n"
+                "code": "import { useEffect, useLayoutEffect } from 'react';\n\nexport const useIsomorphicLayoutEffect =\n  typeof window !== 'undefined' ? useLayoutEffect : useEffect;\n"
               },
               {
                 "id": "storage-use-local-storage",
@@ -1466,21 +1466,21 @@
                 "group": "time",
                 "name": "useCountdown",
                 "emoji": "⏳",
-                "code": "import { useCallback, useEffect, useRef, useState } from 'react';\n\ninterface UseCountdownOptions {\n  interval?: number; // tick interval in ms, default 1000\n  onComplete?: () =\u003e void; // called when countdown reaches 0\n}\n\nexport function useCountdown(initialSeconds: number, options?: UseCountdownOptions) {\n  const { interval = 1000, onComplete } = options || {};\n  const [secondsLeft, setSecondsLeft] = useState(initialSeconds);\n  const timerRef = useRef\u003cNodeJS.Timeout | null\u003e(null);\n  const isPausedRef = useRef(true);\n\n  const clearTimer = useCallback(() =\u003e {\n    if (timerRef.current) {\n      clearInterval(timerRef.current);\n      timerRef.current = null;\n    }\n  }, []);\n\n  const tick = useCallback(() =\u003e {\n    setSecondsLeft((prev) =\u003e {\n      if (prev \u003c= 1) {\n        clearTimer();\n        isPausedRef.current = true;\n        if (onComplete) onComplete();\n        return 0;\n      }\n      return prev - 1;\n    });\n  }, [clearTimer, onComplete]);\n\n  const start = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = false;\n    setSecondsLeft(initialSeconds);\n    timerRef.current = setInterval(tick, interval);\n  }, [clearTimer, initialSeconds, interval, tick]);\n\n  const stop = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = true;\n  }, [clearTimer]);\n\n  const pause = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = true;\n  }, [clearTimer]);\n\n  const resume = useCallback(() =\u003e {\n    if (secondsLeft \u003e 0 \u0026\u0026 isPausedRef.current) {\n      isPausedRef.current = false;\n      clearTimer();\n      timerRef.current = setInterval(tick, interval);\n    }\n  }, [secondsLeft, clearTimer, interval, tick]);\n\n  const reset = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = true;\n    setSecondsLeft(initialSeconds);\n  }, [clearTimer, initialSeconds]);\n\n  useEffect(() =\u003e {\n    return () =\u003e clearTimer();\n  }, [clearTimer]);\n\n  return { secondsLeft, start, stop, pause, resume, reset };\n}\n"
+                "code": "import { useCallback, useEffect, useRef, useState } from 'react';\n\ninterface UseCountdownOptions {\n  interval?: number; // tick interval in ms, default 1000\n  onComplete?: () =\u003e void; // called when countdown reaches 0\n}\n\nexport function useCountdown(\n  initialSeconds: number,\n  options?: UseCountdownOptions\n) {\n  const { interval = 1000, onComplete } = options || {};\n  const [secondsLeft, setSecondsLeft] = useState(initialSeconds);\n  const timerRef = useRef\u003cNodeJS.Timeout | null\u003e(null);\n  const isPausedRef = useRef(true);\n\n  const clearTimer = useCallback(() =\u003e {\n    if (timerRef.current) {\n      clearInterval(timerRef.current);\n      timerRef.current = null;\n    }\n  }, []);\n\n  const tick = useCallback(() =\u003e {\n    setSecondsLeft((prev) =\u003e {\n      if (prev \u003c= 1) {\n        clearTimer();\n        isPausedRef.current = true;\n        if (onComplete) onComplete();\n        return 0;\n      }\n      return prev - 1;\n    });\n  }, [clearTimer, onComplete]);\n\n  const start = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = false;\n    setSecondsLeft(initialSeconds);\n    timerRef.current = setInterval(tick, interval);\n  }, [clearTimer, initialSeconds, interval, tick]);\n\n  const stop = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = true;\n  }, [clearTimer]);\n\n  const pause = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = true;\n  }, [clearTimer]);\n\n  const resume = useCallback(() =\u003e {\n    if (secondsLeft \u003e 0 \u0026\u0026 isPausedRef.current) {\n      isPausedRef.current = false;\n      clearTimer();\n      timerRef.current = setInterval(tick, interval);\n    }\n  }, [secondsLeft, clearTimer, interval, tick]);\n\n  const reset = useCallback(() =\u003e {\n    clearTimer();\n    isPausedRef.current = true;\n    setSecondsLeft(initialSeconds);\n  }, [clearTimer, initialSeconds]);\n\n  useEffect(() =\u003e {\n    return () =\u003e clearTimer();\n  }, [clearTimer]);\n\n  return { secondsLeft, start, stop, pause, resume, reset };\n}\n"
               },
               {
                 "id": "time-use-interval",
                 "group": "time",
                 "name": "useInterval",
                 "emoji": "⏱️",
-                "code": "import { useEffect, useRef } from 'react';\n\nexport const useInterval = (callback: () =\u003e void, delay: number | null): void =\u003e {\n  const savedCallback = useRef\u003c() =\u003e void\u003e(null);\n\n  // Store the latest callback\n  useEffect(() =\u003e {\n    savedCallback.current = callback;\n  }, [callback]);\n\n  // Set up the interval\n  useEffect(() =\u003e {\n    if (delay === null || delay === undefined) return;\n\n    const tick = () =\u003e {\n      savedCallback.current?.();\n    };\n\n    const id = setInterval(tick, delay);\n    return () =\u003e clearInterval(id);\n  }, [delay]);\n};\n"
+                "code": "import { useEffect, useRef } from 'react';\n\nexport const useInterval = (\n  callback: () =\u003e void,\n  delay: number | null\n): void =\u003e {\n  const savedCallback = useRef\u003c() =\u003e void\u003e(null);\n\n  // Store the latest callback\n  useEffect(() =\u003e {\n    savedCallback.current = callback;\n  }, [callback]);\n\n  // Set up the interval\n  useEffect(() =\u003e {\n    if (delay === null || delay === undefined) return;\n\n    const tick = () =\u003e {\n      savedCallback.current?.();\n    };\n\n    const id = setInterval(tick, delay);\n    return () =\u003e clearInterval(id);\n  }, [delay]);\n};\n"
               },
               {
                 "id": "time-use-timeout",
                 "group": "time",
                 "name": "useTimeout",
                 "emoji": "⏳",
-                "code": "import { useEffect, useRef } from 'react';\n\nexport const useTimeout = (callback: () =\u003e void, delay: number | null): void =\u003e {\n  const savedCallback = useRef\u003c() =\u003e void\u003e(null);\n\n  // Remember the latest callback\n  useEffect(() =\u003e {\n    savedCallback.current = callback;\n  }, [callback]);\n\n  useEffect(() =\u003e {\n    if (typeof delay !== 'number') return;\n\n    const id = setTimeout(() =\u003e {\n      savedCallback.current?.();\n    }, delay);\n\n    return () =\u003e clearTimeout(id);\n  }, [delay]);\n};\n"
+                "code": "import { useEffect, useRef } from 'react';\n\nexport const useTimeout = (\n  callback: () =\u003e void,\n  delay: number | null\n): void =\u003e {\n  const savedCallback = useRef\u003c() =\u003e void\u003e(null);\n\n  // Remember the latest callback\n  useEffect(() =\u003e {\n    savedCallback.current = callback;\n  }, [callback]);\n\n  useEffect(() =\u003e {\n    if (typeof delay !== 'number') return;\n\n    const id = setTimeout(() =\u003e {\n      savedCallback.current?.();\n    }, delay);\n\n    return () =\u003e clearTimeout(id);\n  }, [delay]);\n};\n"
               }
             ]
           },
@@ -1488,7 +1488,7 @@
         },
         "page": "/react/hooks",
         "query": {},
-        "buildId": "62q9moSDFvovvIiPs2uKS",
+        "buildId": "OkNORFqa090pbQ93Cxwtq",
         "assetPrefix": "/atomic",
         "isFallback": false,
         "gsp": true,

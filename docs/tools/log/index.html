@@ -33,11 +33,11 @@
       data-next-font="size-adjust" />
     <link
       rel="preload"
-      href="/atomic/_next/static/css/676b7bc665841e00.css"
+      href="/atomic/_next/static/css/52afa8e2426e2a90.css"
       as="style" />
     <link
       rel="stylesheet"
-      href="/atomic/_next/static/css/676b7bc665841e00.css"
+      href="/atomic/_next/static/css/52afa8e2426e2a90.css"
       data-n-g="" />
     <noscript data-n-css=""></noscript>
     <script
@@ -45,34 +45,34 @@
       nomodule=""
       src="/atomic/_next/static/chunks/polyfills-42372ed130431b0a.js"></script>
     <script
-      src="/atomic/_next/static/chunks/webpack-2e4ba50be6ab594c.js"
+      src="/atomic/_next/static/chunks/webpack-05bf249869c4a31a.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/framework-50228cc8e4e878a0.js"
+      src="/atomic/_next/static/chunks/framework-51941a1bb13136a6.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/main-dfcec82c1b880572.js"
+      src="/atomic/_next/static/chunks/main-19e16629b9452984.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/pages/_app-57c3fa31837e3489.js"
+      src="/atomic/_next/static/chunks/pages/_app-a2ce2cfbe4282519.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/1385-3623f656826c598a.js"
+      src="/atomic/_next/static/chunks/5570-e2922569aad4bbe8.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/4119-8d67af22a096d8ee.js"
+      src="/atomic/_next/static/chunks/6259-b8dce3e5b5da74cb.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/699-b5d1024bc9f1770b.js"
+      src="/atomic/_next/static/chunks/9018-b803e964085a9138.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/chunks/pages/tools/log-ef70b532ceb90bb7.js"
+      src="/atomic/_next/static/chunks/pages/tools/log-e04009f89b939f93.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/62q9moSDFvovvIiPs2uKS/_buildManifest.js"
+      src="/atomic/_next/static/OkNORFqa090pbQ93Cxwtq/_buildManifest.js"
       defer=""></script>
     <script
-      src="/atomic/_next/static/62q9moSDFvovvIiPs2uKS/_ssgManifest.js"
+      src="/atomic/_next/static/OkNORFqa090pbQ93Cxwtq/_ssgManifest.js"
       defer=""></script>
   </head>
   <body class="antialiased">
@@ -405,13 +405,13 @@
       {
         "props": {
           "pageProps": {
-            "code": "type LogLevel = 'debug' | 'info' | 'warn' | 'error';\n\ninterface LoggerConfig {\n  level?: LogLevel;\n  timestamp?: boolean;\n}\n\nconst levelColors: Record\u003cLogLevel, string\u003e = {\n  debug: '\\x1b[36m', // cyan\n  info: '\\x1b[32m', // green\n  warn: '\\x1b[33m', // yellow\n  error: '\\x1b[31m', // red\n};\n\nconst levelOrder: Record\u003cLogLevel, number\u003e = {\n  debug: 0,\n  info: 1,\n  warn: 2,\n  error: 3,\n};\n\nconst resetColor = '\\x1b[0m';\n\nexport const createLogger = (config: LoggerConfig = {}) =\u003e {\n  const level = config.level ?? 'info';\n  const timestamp = config.timestamp ?? true;\n\n  const shouldLog = (msgLevel: LogLevel) =\u003e levelOrder[msgLevel] \u003e= levelOrder[level];\n\n  const formatMessage = (msgLevel: LogLevel, message: string, context?: string): string =\u003e {\n    const color = levelColors[msgLevel];\n    const timeStr = timestamp ? `[${new Date().toISOString()}] ` : '';\n    const contextStr = context ? `[${context}] ` : '';\n    return `${color}${timeStr}${contextStr}${msgLevel.toUpperCase()}: ${message}${resetColor}`;\n  };\n\n  const log = (msgLevel: LogLevel, message: string, context?: string) =\u003e {\n    if (!shouldLog(msgLevel)) return;\n    console.log(formatMessage(msgLevel, message, context));\n  };\n\n  return {\n    debug: (msg: string, ctx?: string) =\u003e log('debug', msg, ctx),\n    info: (msg: string, ctx?: string) =\u003e log('info', msg, ctx),\n    warn: (msg: string, ctx?: string) =\u003e log('warn', msg, ctx),\n    error: (msg: string, ctx?: string) =\u003e log('error', msg, ctx),\n  };\n};\n"
+            "code": "type LogLevel = 'debug' | 'info' | 'warn' | 'error';\n\ninterface LoggerConfig {\n  level?: LogLevel;\n  timestamp?: boolean;\n}\n\nconst levelColors: Record\u003cLogLevel, string\u003e = {\n  debug: '\\x1b[36m', // cyan\n  info: '\\x1b[32m', // green\n  warn: '\\x1b[33m', // yellow\n  error: '\\x1b[31m', // red\n};\n\nconst levelOrder: Record\u003cLogLevel, number\u003e = {\n  debug: 0,\n  info: 1,\n  warn: 2,\n  error: 3,\n};\n\nconst resetColor = '\\x1b[0m';\n\nexport const createLogger = (config: LoggerConfig = {}) =\u003e {\n  const level = config.level ?? 'info';\n  const timestamp = config.timestamp ?? true;\n\n  const shouldLog = (msgLevel: LogLevel) =\u003e\n    levelOrder[msgLevel] \u003e= levelOrder[level];\n\n  const formatMessage = (\n    msgLevel: LogLevel,\n    message: string,\n    context?: string\n  ): string =\u003e {\n    const color = levelColors[msgLevel];\n    const timeStr = timestamp ? `[${new Date().toISOString()}] ` : '';\n    const contextStr = context ? `[${context}] ` : '';\n    return `${color}${timeStr}${contextStr}${msgLevel.toUpperCase()}: ${message}${resetColor}`;\n  };\n\n  const log = (msgLevel: LogLevel, message: string, context?: string) =\u003e {\n    if (!shouldLog(msgLevel)) return;\n    console.log(formatMessage(msgLevel, message, context));\n  };\n\n  return {\n    debug: (msg: string, ctx?: string) =\u003e log('debug', msg, ctx),\n    info: (msg: string, ctx?: string) =\u003e log('info', msg, ctx),\n    warn: (msg: string, ctx?: string) =\u003e log('warn', msg, ctx),\n    error: (msg: string, ctx?: string) =\u003e log('error', msg, ctx),\n  };\n};\n"
           },
           "__N_SSG": true
         },
         "page": "/tools/log",
         "query": {},
-        "buildId": "62q9moSDFvovvIiPs2uKS",
+        "buildId": "OkNORFqa090pbQ93Cxwtq",
         "assetPrefix": "/atomic",
         "isFallback": false,
         "gsp": true,

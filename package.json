@@ -28,7 +28,7 @@
   "author": "hieudoanm <hieumdoan@gmail.com> (https://hieudoanm.github.io/)",
   "scripts": {
     "format": "prettier --cache --write .",
-    "lint": "next lint",
+    "lint": "eslint .",
     "predev": "kill-port 3000",
     "dev": "next dev --turbopack",
     "prebuild": "rimraf docs",
