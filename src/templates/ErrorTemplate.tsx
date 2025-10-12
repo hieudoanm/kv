@@ -3,12 +3,12 @@ import { useDarkMode } from '@atomic/hooks/use-dark-mode';
 import Link from 'next/link';
 import { FC } from 'react';
 
-export const ErrorTemplate: FC<{ code: string; title: string; message: string; action: string }> = ({
-  code = '',
-  title = '',
-  message = '',
-  action = '',
-}) => {
+export const ErrorTemplate: FC<{
+  code: string;
+  title: string;
+  message: string;
+  action: string;
+}> = ({ code = '', title = '', message = '', action = '' }) => {
   const { darkMode } = useDarkMode();
   console.info('darkMode', darkMode);
 

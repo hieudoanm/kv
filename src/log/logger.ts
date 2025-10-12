@@ -25,9 +25,14 @@ export const createLogger = (config: LoggerConfig = {}) => {
   const level = config.level ?? 'info';
   const timestamp = config.timestamp ?? true;
 
-  const shouldLog = (msgLevel: LogLevel) => levelOrder[msgLevel] >= levelOrder[level];
+  const shouldLog = (msgLevel: LogLevel) =>
+    levelOrder[msgLevel] >= levelOrder[level];
 
-  const formatMessage = (msgLevel: LogLevel, message: string, context?: string): string => {
+  const formatMessage = (
+    msgLevel: LogLevel,
+    message: string,
+    context?: string
+  ): string => {
     const color = levelColors[msgLevel];
     const timeStr = timestamp ? `[${new Date().toISOString()}] ` : '';
     const contextStr = context ? `[${context}] ` : '';

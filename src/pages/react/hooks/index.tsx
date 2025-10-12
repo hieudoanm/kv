@@ -21,7 +21,10 @@ const HooksPage: NextPage<{ hooks: Hook[] }> = ({ hooks = [] }) => {
   const [{ query = '' }, setState] = useState<{ query: string }>({ query: '' });
 
   const filteredHooks = hooks.filter(({ id, name }) => {
-    return id.toLowerCase().includes(query.toLowerCase()) || name.toLowerCase().includes(query.toLowerCase());
+    return (
+      id.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return (
@@ -41,30 +44,49 @@ const HooksPage: NextPage<{ hooks: Hook[] }> = ({ hooks = [] }) => {
             {filteredHooks.length > 0 && (
               <>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-                  {filteredHooks.map(({ id = '', emoji = '', group, name = '' }) => {
-                    return (
-                      <Link href={`#${id}`} key={id}>
-                        <div className="col-span-1">
-                          <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
-                            <p className="text-2xl">{emoji}</p>
-                            <div className="flex flex-col gap-y-0.25">
-                              <p className="text-xs capitalize">{group}</p>
-                              <p className="font-semibold capitalize">{name}</p>
+                  {filteredHooks.map(
+                    ({ id = '', emoji = '', group, name = '' }) => {
+                      return (
+                        <Link href={`#${id}`} key={id}>
+                          <div className="col-span-1">
+                            <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
+                              <p className="text-2xl">{emoji}</p>
+                              <div className="flex flex-col gap-y-0.25">
+                                <p className="text-xs capitalize">{group}</p>
+                                <p className="font-semibold capitalize">
+                                  {name}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
+                        </Link>
+                      );
+                    }
+                  )}
                 </div>
                 <div className="flex flex-col gap-y-8">
-                  {filteredHooks.map(({ id = '', emoji = '', group = '', name = '', code = '' }) => {
-                    return (
-                      <div key={id} className="flex flex-col gap-y-4">
-                        <Code id={id} emoji={emoji} group={group} name={name} code={code} codeOnly />
-                      </div>
-                    );
-                  })}
+                  {filteredHooks.map(
+                    ({
+                      id = '',
+                      emoji = '',
+                      group = '',
+                      name = '',
+                      code = '',
+                    }) => {
+                      return (
+                        <div key={id} className="flex flex-col gap-y-4">
+                          <Code
+                            id={id}
+                            emoji={emoji}
+                            group={group}
+                            name={name}
+                            code={code}
+                            codeOnly
+                          />
+                        </div>
+                      );
+                    }
+                  )}
                 </div>
               </>
             )}
@@ -93,9 +115,17 @@ export const getStaticProps = () => {
     { path: 'navigator/use-geolocation', emoji: '📍', name: 'useGeolocation' },
     { path: 'network/use-online', emoji: '📶', name: 'useOnline' },
     { path: 'network/use-fetch', emoji: '🛰️', name: 'useFetch' },
-    { path: 'ssr/use-isomorphic-layout-effect', emoji: '⚙️', name: 'useIsomorphicLayoutEffect' },
+    {
+      path: 'ssr/use-isomorphic-layout-effect',
+      emoji: '⚙️',
+      name: 'useIsomorphicLayoutEffect',
+    },
     { path: 'storage/use-local-storage', emoji: '💾', name: 'useLocalStorage' },
-    { path: 'storage/use-session-storage', emoji: '🗂️', name: 'useSessionStorage' },
+    {
+      path: 'storage/use-session-storage',
+      emoji: '🗂️',
+      name: 'useSessionStorage',
+    },
     { path: 'time/use-countdown', emoji: '⏳', name: 'useCountdown' },
     { path: 'time/use-interval', emoji: '⏱️', name: 'useInterval' },
     { path: 'time/use-timeout', emoji: '⏳', name: 'useTimeout' },

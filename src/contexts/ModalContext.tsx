@@ -1,4 +1,10 @@
-import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 
 type ModalContextType = {
   isOpen: boolean;
@@ -9,9 +15,13 @@ type ModalContextType = {
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
-export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
+  const [modalContent, setModalContent] = useState<React.ReactNode | null>(
+    null
+  );
 
   const openModal = useCallback((content: React.ReactNode) => {
     setModalContent(content);
@@ -28,7 +38,9 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     [isOpen, modalContent, openModal, closeModal]
   );
 
-  return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
+  return (
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
+  );
 };
 
 export const useModal = (): ModalContextType => {

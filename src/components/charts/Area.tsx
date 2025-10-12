@@ -1,6 +1,9 @@
 import { FC, useEffect, useRef } from 'react';
 
-export const AreaChart: FC<{ data: number[]; labels: string[] }> = ({ data = [], labels = [] }) => {
+export const AreaChart: FC<{ data: number[]; labels: string[] }> = ({
+  data = [],
+  labels = [],
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -23,8 +26,10 @@ export const AreaChart: FC<{ data: number[]; labels: string[] }> = ({ data = [],
     const maxValue = Math.max(...data);
     const minValue = 0;
 
-    const getX = (i: number) => leftPadding + (chartWidth / (data.length - 1)) * i;
-    const getY = (val: number) => padding + ((maxValue - val) / (maxValue - minValue)) * chartHeight;
+    const getX = (i: number) =>
+      leftPadding + (chartWidth / (data.length - 1)) * i;
+    const getY = (val: number) =>
+      padding + ((maxValue - val) / (maxValue - minValue)) * chartHeight;
 
     // Grid
     ctx.strokeStyle = '#e5e7eb';
@@ -129,7 +134,12 @@ export const AreaChart: FC<{ data: number[]; labels: string[] }> = ({ data = [],
 
   return (
     <div className="w-full max-w-md rounded-lg border border-neutral-200 p-4 shadow dark:border-neutral-800 dark:shadow-neutral-100/10">
-      <canvas ref={canvasRef} width={400} height={200} className="h-auto w-full" />
+      <canvas
+        ref={canvasRef}
+        width={400}
+        height={200}
+        className="h-auto w-full"
+      />
     </div>
   );
 };

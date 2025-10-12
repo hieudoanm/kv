@@ -7,7 +7,12 @@ type RadarChartProps = {
   title?: string; // chart title (optional)
 };
 
-export const RadarChart: FC<RadarChartProps> = ({ data, labels, maxValue, title }) => {
+export const RadarChart: FC<RadarChartProps> = ({
+  data,
+  labels,
+  maxValue,
+  title,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -122,19 +127,34 @@ export const RadarChart: FC<RadarChartProps> = ({ data, labels, maxValue, title 
 
     ctx.fillStyle = '#3b82f6'; // blue-500
     ctx.beginPath();
-    ctx.arc(legendX + radiusLegend, legendY + radiusLegend, radiusLegend, 0, 2 * Math.PI);
+    ctx.arc(
+      legendX + radiusLegend,
+      legendY + radiusLegend,
+      radiusLegend,
+      0,
+      2 * Math.PI
+    );
     ctx.fill();
 
     ctx.fillStyle = '#374151'; // neutral-700
     ctx.font = '12px sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText('Dataset 1', legendX + radiusLegend * 2 + 8, legendY + radiusLegend);
+    ctx.fillText(
+      'Dataset 1',
+      legendX + radiusLegend * 2 + 8,
+      legendY + radiusLegend
+    );
   }, [data, labels, maxValue, title]);
 
   return (
     <div className="w-full max-w-md rounded-lg border border-neutral-200 p-4 shadow md:p-8 dark:border-neutral-800 dark:shadow-neutral-100/10">
-      <canvas ref={canvasRef} width={400} height={400} className="h-auto w-full" />
+      <canvas
+        ref={canvasRef}
+        width={400}
+        height={400}
+        className="h-auto w-full"
+      />
     </div>
   );
 };

@@ -2,7 +2,10 @@ import { copy } from '@atomic/utils/clipboard/copy';
 import createDOMPurify from 'dompurify';
 import { FC, useEffect, useState } from 'react';
 
-export const Icon: FC<{ name: string; code: string }> = ({ name = '', code = '' }) => {
+export const Icon: FC<{ name: string; code: string }> = ({
+  name = '',
+  code = '',
+}) => {
   const [html, setHtml] = useState('');
 
   useEffect(() => {

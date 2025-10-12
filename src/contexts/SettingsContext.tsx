@@ -1,4 +1,10 @@
-import React, { createContext, useState, useCallback, useMemo, useContext } from 'react';
+import React, {
+  createContext,
+  useState,
+  useCallback,
+  useMemo,
+  useContext,
+} from 'react';
 
 type Settings = {
   darkMode: boolean;
@@ -18,22 +24,36 @@ const defaultSettings: Settings = {
   language: 'en',
 };
 
-const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
+const SettingsContext = createContext<SettingsContextType | undefined>(
+  undefined
+);
 
-export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [settings, setSettings] = useState<Settings>(defaultSettings);
 
-  const updateSetting = useCallback(<K extends keyof Settings>(key: K, value: Settings[K]) => {
-    setSettings((prev) => ({ ...prev, [key]: value }));
-  }, []);
+  const updateSetting = useCallback(
+    <K extends keyof Settings>(key: K, value: Settings[K]) => {
+      setSettings((prev) => ({ ...prev, [key]: value }));
+    },
+    []
+  );
 
   const resetSettings = useCallback(() => {
     setSettings(defaultSettings);
   }, []);
 
-  const value = useMemo(() => ({ settings, updateSetting, resetSettings }), [settings, updateSetting, resetSettings]);
+  const value = useMemo(
+    () => ({ settings, updateSetting, resetSettings }),
+    [settings, updateSetting, resetSettings]
+  );
 
-  return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
+  return (
+    <SettingsContext.Provider value={value}>
+      {children}
+    </SettingsContext.Provider>
+  );
 };
 
 export const useSettings = (): SettingsContextType => {

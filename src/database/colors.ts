@@ -21,7 +21,18 @@ type ColorName =
   | 'zinc'
   | 'neutral'
   | 'stone';
-type ColorShade = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
+type ColorShade =
+  | 50
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900
+  | 950;
 
 export const colors: Record<ColorName, Record<ColorShade, string>> = {
   // Yellow

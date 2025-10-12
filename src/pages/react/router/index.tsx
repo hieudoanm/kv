@@ -26,7 +26,9 @@ const RouterPage: NextPage<{ code: string }> = ({ code = '' }) => {
                 <span className="text-4xl">🧭</span>
                 <div>
                   <p className="text-xs capitalize">React</p>
-                  <h3 className="text-xl font-bold capitalize md:text-2xl">Router</h3>
+                  <h3 className="text-xl font-bold capitalize md:text-2xl">
+                    Router
+                  </h3>
                 </div>
               </div>
               <button

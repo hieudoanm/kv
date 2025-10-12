@@ -101,7 +101,10 @@ const ChartsPage: NextPage<{ charts: ChartType[] }> = ({ charts = [] }) => {
   const [{ query = '' }, setState] = useState<{ query: string }>({ query: '' });
 
   const filteredCharts = charts.filter(({ id, name }) => {
-    return id.toLowerCase().includes(query.toLowerCase()) || name.toLowerCase().includes(query.toLowerCase());
+    return (
+      id.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return (
@@ -116,7 +119,8 @@ const ChartsPage: NextPage<{ charts: ChartType[] }> = ({ charts = [] }) => {
         <div className="container mx-auto px-8">
           <div className="flex flex-col gap-y-4 md:gap-y-8">
             <h2 className="text-2xl font-bold">
-              <span className="capitalize">Charts</span> ({filteredCharts.length})
+              <span className="capitalize">Charts</span> (
+              {filteredCharts.length})
             </h2>
             {filteredCharts.length > 0 && (
               <>

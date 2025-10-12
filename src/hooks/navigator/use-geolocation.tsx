@@ -6,7 +6,10 @@ type GeolocationState = {
   error: Error | GeolocationPositionError | null;
 };
 
-export const useGeolocation = (watch: boolean = false, options?: PositionOptions) => {
+export const useGeolocation = (
+  watch: boolean = false,
+  options?: PositionOptions
+) => {
   const [state, setState] = useState<GeolocationState>({
     coords: null,
     timestamp: null,
@@ -15,7 +18,10 @@ export const useGeolocation = (watch: boolean = false, options?: PositionOptions
 
   useEffect(() => {
     if (!navigator.geolocation) {
-      setState((s) => ({ ...s, error: new Error('Geolocation is not supported') }));
+      setState((s) => ({
+        ...s,
+        error: new Error('Geolocation is not supported'),
+      }));
       return;
     }
 
@@ -34,7 +40,11 @@ export const useGeolocation = (watch: boolean = false, options?: PositionOptions
     let watchId: number;
 
     if (watch) {
-      watchId = navigator.geolocation.watchPosition(onSuccess, onError, options);
+      watchId = navigator.geolocation.watchPosition(
+        onSuccess,
+        onError,
+        options
+      );
     } else {
       navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     }

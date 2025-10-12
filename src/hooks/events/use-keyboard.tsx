@@ -6,7 +6,11 @@ interface UseKeyboardOptions {
   onKeyPress?: (event: KeyboardEvent) => void; // Note: keypress is deprecated but included if needed
 }
 
-export const useKeyboard = ({ onKeyDown, onKeyUp, onKeyPress }: UseKeyboardOptions = {}) => {
+export const useKeyboard = ({
+  onKeyDown,
+  onKeyUp,
+  onKeyPress,
+}: UseKeyboardOptions = {}) => {
   const [pressedKeys, setPressedKeys] = useState<Set<string>>(new Set());
 
   const handleKeyDown = useCallback(

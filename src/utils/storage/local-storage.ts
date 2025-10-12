@@ -41,5 +41,10 @@ export const clearLocalStorage = (): void => {
 };
 
 export const LocalStorage = () => {
-  return { set: setLocalStorage, get: getLocalStorage, remove: removeLocalStorage, clear: clearLocalStorage };
+  return {
+    set: setLocalStorage,
+    get: getLocalStorage,
+    remove: removeLocalStorage,
+    clear: clearLocalStorage,
+  };
 };

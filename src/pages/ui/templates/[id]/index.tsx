@@ -6,12 +6,15 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
-const DEV_PATH = process.env.NODE_ENV === 'development' ? '../../../..' : '../../../../..';
+const DEV_PATH =
+  process.env.NODE_ENV === 'development' ? '../../../..' : '../../../../..';
 const __dirname = join(dirname(__filename), DEV_PATH);
 
 type TemplateType = { id: string; name: string; code: string };
 
-const TemplatePage: NextPage<{ template: TemplateType }> = ({ template = { id: '', name: '', code: '' } }) => {
+const TemplatePage: NextPage<{ template: TemplateType }> = ({
+  template = { id: '', name: '', code: '' },
+}) => {
   const { value: fullScreen, toggle } = useToggle(false);
 
   const { id = '', name = '', code = '' } = template;
@@ -38,7 +41,9 @@ const TemplatePage: NextPage<{ template: TemplateType }> = ({ template = { id: '
           </div>
         </div>
       </section>
-      {fullScreen && <FullScreen name={name} code={code} onClose={() => toggle()} />}
+      {fullScreen && (
+        <FullScreen name={name} code={code} onClose={() => toggle()} />
+      )}
     </PageTemplate>
   );
 };
@@ -59,10 +64,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<{ template: TemplateType }, { id: string }> = (context) => {
+export const getStaticProps: GetStaticProps<
+  { template: TemplateType },
+  { id: string }
+> = (context) => {
   const id = context?.params?.id ?? '';
-  const desktopPath: string = join(__dirname, `src/html/templates/desktop/${id}.html`);
-  const mobilePath: string = join(__dirname, `src/html/templates/mobile/${id}.html`);
+  const desktopPath: string = join(
+    __dirname,
+    `src/html/templates/desktop/${id}.html`
+  );
+  const mobilePath: string = join(
+    __dirname,
+    `src/html/templates/mobile/${id}.html`
+  );
   let code: string = '';
   if (existsSync(desktopPath)) {
     code = readFileSync(desktopPath, 'utf-8');

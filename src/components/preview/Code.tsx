@@ -10,7 +10,14 @@ export const Code: FC<{
   name: string;
   code: string;
   codeOnly?: boolean;
-}> = ({ id = '', emoji = '', group = '', name = '', code = '', codeOnly = false }) => {
+}> = ({
+  id = '',
+  emoji = '',
+  group = '',
+  name = '',
+  code = '',
+  codeOnly = false,
+}) => {
   const [html, setHtml] = useState('');
   const [preview, setPreview] = useState<boolean>(true);
 
@@ -54,7 +61,10 @@ export const Code: FC<{
         ) : (
           <>
             {preview ? (
-              <div className="w-full p-4 md:p-8" dangerouslySetInnerHTML={{ __html: html }} />
+              <div
+                className="w-full p-4 md:p-8"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
             ) : (
               <Shiki code={code} lang="html" />
             )}

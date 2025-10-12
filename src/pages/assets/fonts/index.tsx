@@ -27,13 +27,25 @@ const ubuntuMono = Ubuntu_Mono({ subsets: ['latin'], weight: '400' });
 const fonts = [
   { id: 'fira-code', name: 'Fira Code', className: firaCode.className },
   { id: 'inter', name: 'Inter', className: inter.className },
-  { id: 'jetbrains-mono', name: 'JetBrains Mono', className: jetBrainsMono.className },
+  {
+    id: 'jetbrains-mono',
+    name: 'JetBrains Mono',
+    className: jetBrainsMono.className,
+  },
   { id: 'lato', name: 'Lato', className: lato.className },
-  { id: 'merriweather', name: 'Merriweather', className: merriweather.className },
+  {
+    id: 'merriweather',
+    name: 'Merriweather',
+    className: merriweather.className,
+  },
   { id: 'open-sans', name: 'Open Sans', className: openSans.className },
   { id: 'roboto', name: 'Roboto', className: roboto.className },
   { id: 'roboto-mono', name: 'Roboto Mono', className: robotoMono.className },
-  { id: 'source-code-pro', name: 'SourceCode Pro', className: sourceCodePro.className },
+  {
+    id: 'source-code-pro',
+    name: 'SourceCode Pro',
+    className: sourceCodePro.className,
+  },
   { id: 'ubunto-mono', name: 'Ubuntu Mono', className: ubuntuMono.className },
 ];
 
@@ -43,11 +55,20 @@ const FontsPage = () => {
   const [{ query = '' }, setState] = useState<{ query: string }>({ query: '' });
 
   const filteredFonts = fonts.filter(({ id, name }) => {
-    return id.toLowerCase().includes(query.toLowerCase()) || name.toLowerCase().includes(query.toLowerCase());
+    return (
+      id.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return (
-    <PageTemplate query={query} setState={setState} id="assets-fonts" emoji="🔤" title="atomic/fonts" description="">
+    <PageTemplate
+      query={query}
+      setState={setState}
+      id="assets-fonts"
+      emoji="🔤"
+      title="atomic/fonts"
+      description="">
       <section className="py-8 md:py-16">
         <div className="container mx-auto px-8">
           <div className="flex flex-col gap-y-4 md:gap-y-8">

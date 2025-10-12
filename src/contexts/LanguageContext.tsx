@@ -1,4 +1,12 @@
-import { createContext, FC, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
+import {
+  createContext,
+  FC,
+  ReactNode,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 
 export enum Language {
   English = 'en',
@@ -51,7 +59,9 @@ interface LanguageProviderProps {
   persist?: boolean;
 }
 
-const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextProps | undefined>(
+  undefined
+);
 
 const LANGUAGE_STORAGE_KEY = 'app_language';
 
@@ -78,7 +88,10 @@ export const LanguageProvider: FC<LanguageProviderProps> = ({
     if (persist) localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
   };
 
-  const translations = useMemo(() => languageMap[language] ?? {}, [language, languageMap]);
+  const translations = useMemo(
+    () => languageMap[language] ?? {},
+    [language, languageMap]
+  );
 
   const t = useCallback(
     (nsKey: string, key?: string, fallback?: string): string => {
@@ -99,7 +112,9 @@ export const LanguageProvider: FC<LanguageProviderProps> = ({
       const value = namespace?.[actualKey];
 
       if (!value) {
-        console.warn(`Missing translation for "${ns}.${actualKey}" in language "${language}"`);
+        console.warn(
+          `Missing translation for "${ns}.${actualKey}" in language "${language}"`
+        );
       }
 
       return value ?? fallback ?? actualKey;
@@ -116,12 +131,17 @@ export const LanguageProvider: FC<LanguageProviderProps> = ({
     [language, setLanguageToLocalStorage, t]
   );
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
 };
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (!context) throw new Error('useLanguage must be used within a LanguageProvider');
+  if (!context)
+    throw new Error('useLanguage must be used within a LanguageProvider');
   return context;
 };
 

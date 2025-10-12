@@ -7,7 +7,12 @@ type PolarAreaChartProps = {
   title?: string;
 };
 
-export const PolarChart: FC<PolarAreaChartProps> = ({ data, labels, maxValue, title }) => {
+export const PolarChart: FC<PolarAreaChartProps> = ({
+  data,
+  labels,
+  maxValue,
+  title,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -68,7 +73,15 @@ export const PolarChart: FC<PolarAreaChartProps> = ({ data, labels, maxValue, ti
     }
 
     // Draw data sectors
-    const colors = ['#3b82f6', '#ef4444', '#f59e0b', '#10b981', '#8b5cf6', '#ec4899', '#22d3ee'];
+    const colors = [
+      '#3b82f6',
+      '#ef4444',
+      '#f59e0b',
+      '#10b981',
+      '#8b5cf6',
+      '#ec4899',
+      '#22d3ee',
+    ];
 
     for (let i = 0; i < pointsCount; i++) {
       const valueRatio = (data[i] - scaleMin) / (scaleMax - scaleMin);
@@ -107,11 +120,21 @@ export const PolarChart: FC<PolarAreaChartProps> = ({ data, labels, maxValue, ti
     for (let i = 0; i < pointsCount; i++) {
       ctx.fillStyle = colors[i % colors.length];
       ctx.beginPath();
-      ctx.arc(legendX + radiusLegend, legendY + radiusLegend, radiusLegend, 0, 2 * Math.PI);
+      ctx.arc(
+        legendX + radiusLegend,
+        legendY + radiusLegend,
+        radiusLegend,
+        0,
+        2 * Math.PI
+      );
       ctx.fill();
 
       ctx.fillStyle = '#374151'; // neutral-700
-      ctx.fillText(labels[i], legendX + radiusLegend * 2 + 8, legendY + radiusLegend);
+      ctx.fillText(
+        labels[i],
+        legendX + radiusLegend * 2 + 8,
+        legendY + radiusLegend
+      );
 
       legendY += 28;
     }
@@ -119,7 +142,12 @@ export const PolarChart: FC<PolarAreaChartProps> = ({ data, labels, maxValue, ti
 
   return (
     <div className="w-full max-w-md rounded-lg border border-neutral-200 p-4 shadow md:p-8 dark:border-neutral-800 dark:shadow-neutral-100/10">
-      <canvas ref={canvasRef} width={400} height={400} className="h-auto w-full" />
+      <canvas
+        ref={canvasRef}
+        width={400}
+        height={400}
+        className="h-auto w-full"
+      />
     </div>
   );
 };

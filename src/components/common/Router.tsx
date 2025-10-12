@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode, useMemo } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+  useMemo,
+} from 'react';
 
 interface RouterContextType {
   path: string;
@@ -28,7 +35,11 @@ export const Router: React.FC<RouterProps> = ({ children }) => {
   // useMemo to memoize the context value object
   const contextValue = useMemo(() => ({ path, navigate }), [path]);
 
-  return <RouterContext.Provider value={contextValue}>{children}</RouterContext.Provider>;
+  return (
+    <RouterContext.Provider value={contextValue}>
+      {children}
+    </RouterContext.Provider>
+  );
 };
 
 interface RouteProps {

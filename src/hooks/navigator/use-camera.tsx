@@ -8,7 +8,9 @@ export const useCamera = () => {
   useEffect(() => {
     const startCamera = async () => {
       try {
-        const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const mediaStream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
         setStream(mediaStream);
         if (videoRef.current) {
           videoRef.current.srcObject = mediaStream;

@@ -21,11 +21,16 @@ const emojis: Record<string, string> = {
   wallet: '💰',
 };
 
-const TemplatesPage: NextPage<{ templates: TemplateType[] }> = ({ templates = [] }) => {
+const TemplatesPage: NextPage<{ templates: TemplateType[] }> = ({
+  templates = [],
+}) => {
   const [{ query = '' }, setState] = useState<{ query: string }>({ query: '' });
 
   const filteredTemplates = templates.filter(({ id, name }) => {
-    return id.toLowerCase().includes(query.toLowerCase()) || name.toLowerCase().includes(query.toLowerCase());
+    return (
+      id.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return (
@@ -40,33 +45,42 @@ const TemplatesPage: NextPage<{ templates: TemplateType[] }> = ({ templates = []
         <div className="container mx-auto px-8">
           <div className="flex flex-col gap-y-4 md:gap-y-8">
             <h2 className="text-2xl font-bold">
-              <span className="capitalize">Templates</span> ({filteredTemplates.length})
+              <span className="capitalize">Templates</span> (
+              {filteredTemplates.length})
             </h2>
             {filteredTemplates.length > 0 && (
               <>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-                  {filteredTemplates.map(({ id = '', group = '', name = '' }) => {
-                    return (
-                      <Link href={`#${id}`} key={id}>
-                        <div className="col-span-1">
-                          <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
-                            <p className="text-2xl">{emojis[id] ?? ''}</p>
-                            <div className="flex flex-col gap-y-0.25">
-                              <p className="text-xs capitalize">{group}</p>
-                              <p className="font-semibold capitalize">{name}</p>
+                  {filteredTemplates.map(
+                    ({ id = '', group = '', name = '' }) => {
+                      return (
+                        <Link href={`#${id}`} key={id}>
+                          <div className="col-span-1">
+                            <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
+                              <p className="text-2xl">{emojis[id] ?? ''}</p>
+                              <div className="flex flex-col gap-y-0.25">
+                                <p className="text-xs capitalize">{group}</p>
+                                <p className="font-semibold capitalize">
+                                  {name}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
+                        </Link>
+                      );
+                    }
+                  )}
                 </div>
                 <div className="flex flex-col gap-y-4 md:gap-y-8">
                   {filteredTemplates.map(({ id = '', name = '', code }) => {
                     return (
                       <Link key={id} href={`/ui/templates/${id}`}>
-                        <div id={id} className="flex flex-col gap-y-4 md:gap-y-8">
-                          <h2 className="text-2xl font-bold capitalize">📝 {name}</h2>
+                        <div
+                          id={id}
+                          className="flex flex-col gap-y-4 md:gap-y-8">
+                          <h2 className="text-2xl font-bold capitalize">
+                            📝 {name}
+                          </h2>
                           <div className="h-128 overflow-hidden rounded-lg border border-neutral-200 p-4 shadow md:p-8 dark:border-neutral-800 dark:shadow-neutral-100/10">
                             <HTMLPreview code={code} />
                           </div>
@@ -88,7 +102,10 @@ const getTemplates = (group: string) => {
   const files = readdirSync(join(__dirname, `src/html/templates/${group}`));
   const templates = files.map((file: string) => {
     const id: string = file?.replaceAll('.html', '');
-    const filePath: string = join(__dirname, `src/html/templates/${group}/${file}`);
+    const filePath: string = join(
+      __dirname,
+      `src/html/templates/${group}/${file}`
+    );
     const code: string = readFileSync(filePath, 'utf-8');
     return { id, group, name: id, code };
   });

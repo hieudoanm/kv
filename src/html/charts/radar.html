@@ -115,12 +115,22 @@
 
   ctx.fillStyle = '#3b82f6'; // blue-500
   ctx.beginPath();
-  ctx.arc(legendX + radiusLegend, legendY + radiusLegend, radiusLegend, 0, 2 * Math.PI);
+  ctx.arc(
+    legendX + radiusLegend,
+    legendY + radiusLegend,
+    radiusLegend,
+    0,
+    2 * Math.PI
+  );
   ctx.fill();
 
   ctx.fillStyle = '#374151'; // neutral-700
   ctx.font = '12px sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
-  ctx.fillText('Dataset 1', legendX + radiusLegend * 2 + 8, legendY + radiusLegend);
+  ctx.fillText(
+    'Dataset 1',
+    legendX + radiusLegend * 2 + 8,
+    legendY + radiusLegend
+  );
 </script>

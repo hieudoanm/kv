@@ -5,7 +5,10 @@ interface UseCountdownOptions {
   onComplete?: () => void; // called when countdown reaches 0
 }
 
-export function useCountdown(initialSeconds: number, options?: UseCountdownOptions) {
+export function useCountdown(
+  initialSeconds: number,
+  options?: UseCountdownOptions
+) {
   const { interval = 1000, onComplete } = options || {};
   const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
   const timerRef = useRef<NodeJS.Timeout | null>(null);

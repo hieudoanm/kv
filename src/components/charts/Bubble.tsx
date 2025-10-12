@@ -12,7 +12,13 @@ export const BubbleChart: FC<{
   yLabels: string[];
   xName?: string;
   yName?: string;
-}> = ({ data = [], xLabels = [], yLabels = [], xName = 'X Axis', yName = 'Y Axis' }) => {
+}> = ({
+  data = [],
+  xLabels = [],
+  yLabels = [],
+  xName = 'X Axis',
+  yName = 'Y Axis',
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -58,7 +64,9 @@ export const BubbleChart: FC<{
       ctx.font = '12px sans-serif';
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
-      const label = yLabels[ySteps - i] || (yMin + ((yMax - yMin) / ySteps) * (ySteps - i)).toFixed(0);
+      const label =
+        yLabels[ySteps - i] ||
+        (yMin + ((yMax - yMin) / ySteps) * (ySteps - i)).toFixed(0);
       ctx.fillText(label.toString(), leftPadding - 8, y);
     }
 
@@ -76,7 +84,8 @@ export const BubbleChart: FC<{
       ctx.font = '12px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
-      const label = xLabels[i] || (xMin + ((xMax - xMin) / xSteps) * i).toFixed(0);
+      const label =
+        xLabels[i] || (xMin + ((xMax - xMin) / xSteps) * i).toFixed(0);
       ctx.fillText(label.toString(), x, height - bottomPadding + 6);
     }
 
@@ -135,7 +144,13 @@ export const BubbleChart: FC<{
     ctx.fillStyle = 'rgba(59, 130, 246, 0.6)';
     ctx.strokeStyle = '#3b82f6';
     ctx.lineWidth = 1;
-    ctx.arc(legendX + legendRadius, legendY + legendRadius, legendRadius, 0, 2 * Math.PI);
+    ctx.arc(
+      legendX + legendRadius,
+      legendY + legendRadius,
+      legendRadius,
+      0,
+      2 * Math.PI
+    );
     ctx.fill();
     ctx.stroke();
 
@@ -143,12 +158,21 @@ export const BubbleChart: FC<{
     ctx.font = '12px sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText('Bubble Size = Radius', legendX + legendRadius * 2 + 8, legendY + legendRadius);
+    ctx.fillText(
+      'Bubble Size = Radius',
+      legendX + legendRadius * 2 + 8,
+      legendY + legendRadius
+    );
   }, [data, xLabels, yLabels, xName, yName]);
 
   return (
     <div className="w-full max-w-md rounded-lg border border-neutral-200 p-4 shadow dark:border-neutral-800 dark:shadow-neutral-100/10">
-      <canvas ref={canvasRef} width={400} height={300} className="h-auto w-full" />
+      <canvas
+        ref={canvasRef}
+        width={400}
+        height={300}
+        className="h-auto w-full"
+      />
     </div>
   );
 };

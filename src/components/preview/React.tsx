@@ -8,7 +8,14 @@ export const ReactPreview: FC<{
   name: string;
   code: string;
   chart: ReactNode;
-}> = ({ id = '', emoji = '', group = '', name = '', code = '', chart = <></> }) => {
+}> = ({
+  id = '',
+  emoji = '',
+  group = '',
+  name = '',
+  code = '',
+  chart = <></>,
+}) => {
   const [preview, setPreview] = useState<boolean>(true);
 
   return (
@@ -30,7 +37,9 @@ export const ReactPreview: FC<{
       </div>
       <div className="flex items-center justify-center overflow-hidden rounded-lg border border-neutral-200 shadow dark:border-neutral-800 dark:shadow-neutral-100/10">
         {preview ? (
-          <div className="flex w-full items-center justify-center p-4 md:p-8">{chart}</div>
+          <div className="flex w-full items-center justify-center p-4 md:p-8">
+            {chart}
+          </div>
         ) : (
           <Shiki code={code} lang="html" />
         )}

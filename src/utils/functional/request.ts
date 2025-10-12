@@ -2,7 +2,10 @@ type FetchOptions = RequestInit & {
   timeout?: number; // Optional timeout in milliseconds
 };
 
-export const request = async <T = unknown>(url: string, options: FetchOptions = {}): Promise<T> => {
+export const request = async <T = unknown>(
+  url: string,
+  options: FetchOptions = {}
+): Promise<T> => {
   const { timeout = 8000, ...fetchOptions } = options;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);
@@ -21,7 +24,9 @@ export const request = async <T = unknown>(url: string, options: FetchOptions = 
 
     if (!response.ok) {
       const errorBody = await response.text();
-      throw new Error(`HTTP ${response.status} - ${response.statusText}\n${errorBody}`);
+      throw new Error(
+        `HTTP ${response.status} - ${response.statusText}\n${errorBody}`
+      );
     }
 
     const contentType = response.headers.get('content-type');

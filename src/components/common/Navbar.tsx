@@ -4,11 +4,22 @@ import Link from 'next/link';
 import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
 import { Toggle } from './Toggle';
 
-type NavbarLink = { group: Group; id: string; emoji: string; href: string; text: string };
+type NavbarLink = {
+  group: Group;
+  id: string;
+  emoji: string;
+  href: string;
+  text: string;
+};
 
 export type Group = 'assets' | 'react' | 'ui' | 'tools';
 
-const groupEmojis: Record<Group, string> = { assets: '🖼️', react: '⚛️', ui: '🎨', tools: '🛠️' };
+const groupEmojis: Record<Group, string> = {
+  assets: '🖼️',
+  react: '⚛️',
+  ui: '🎨',
+  tools: '🛠️',
+};
 
 const MobileNavbar: FC<{ links: NavbarLink[] }> = ({ links }) => {
   return (
@@ -17,7 +28,11 @@ const MobileNavbar: FC<{ links: NavbarLink[] }> = ({ links }) => {
         <button
           type="button"
           className="inline-flex items-center justify-center gap-1 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 shadow-sm hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-4" fill="currentColor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            className="w-4"
+            fill="currentColor">
             <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
           </svg>
         </button>
@@ -41,7 +56,10 @@ const MobileNavbar: FC<{ links: NavbarLink[] }> = ({ links }) => {
 const DesktopNavbar: FC<{ links: NavbarLink[] }> = ({ links = [] }) => {
   const groups: Group[] = unique(links.map(({ group }) => group));
   const linksByGroups = groups.map((group) => {
-    return { group, links: links.filter(({ group: linkGroup }) => group === linkGroup) };
+    return {
+      group,
+      links: links.filter(({ group: linkGroup }) => group === linkGroup),
+    };
   });
 
   return (
@@ -81,7 +99,14 @@ export const Navbar: FC<{
   disabledSearch?: boolean;
   query: string;
   setState: Dispatch<SetStateAction<{ query: string }>>;
-}> = ({ emoji = '', title = '', links = [], query = '', setState, disabledSearch = false }) => {
+}> = ({
+  emoji = '',
+  title = '',
+  links = [],
+  query = '',
+  setState,
+  disabledSearch = false,
+}) => {
   const { darkMode = false, toggleDarkMode } = useDarkMode();
 
   return (

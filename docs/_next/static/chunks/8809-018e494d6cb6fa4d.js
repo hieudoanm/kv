@@ -4,7 +4,13 @@
   {
     8809: (e, t, n) => {
       n.d(t, { A: () => en });
-      let { entries: o, setPrototypeOf: r, isFrozen: i, getPrototypeOf: a, getOwnPropertyDescriptor: l } = Object,
+      let {
+          entries: o,
+          setPrototypeOf: r,
+          isFrozen: i,
+          getPrototypeOf: a,
+          getOwnPropertyDescriptor: l,
+        } = Object,
         { freeze: c, seal: s, create: u } = Object,
         { apply: m, construct: p } = 'undefined' != typeof Reflect && Reflect;
       (c ||
@@ -39,18 +45,25 @@
         R =
           ((Z = TypeError),
           function () {
-            for (var e = arguments.length, t = Array(e), n = 0; n < e; n++) t[n] = arguments[n];
+            for (var e = arguments.length, t = Array(e), n = 0; n < e; n++)
+              t[n] = arguments[n];
             return p(Z, t);
           });
       function v(e) {
         return function (t) {
           t instanceof RegExp && (t.lastIndex = 0);
-          for (var n = arguments.length, o = Array(n > 1 ? n - 1 : 0), r = 1; r < n; r++) o[r - 1] = arguments[r];
+          for (
+            var n = arguments.length, o = Array(n > 1 ? n - 1 : 0), r = 1;
+            r < n;
+            r++
+          )
+            o[r - 1] = arguments[r];
           return m(e, t, o);
         };
       }
       function C(e, t) {
-        let n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : y;
+        let n =
+          arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : y;
         r && r(e, null);
         let o = t.length;
         for (; o--; ) {
@@ -714,13 +727,21 @@
           'width',
           'xmlns',
         ]),
-        W = c(['xlink:href', 'xml:id', 'xlink:title', 'xml:space', 'xmlns:xlink']),
+        W = c([
+          'xlink:href',
+          'xml:id',
+          'xlink:title',
+          'xml:space',
+          'xmlns:xlink',
+        ]),
         G = s(/\{\{[\w\W]*|[\w\W]*\}\}/gm),
         B = s(/<%[\w\W]*|[\w\W]*%>/gm),
         Y = s(/\$\{[\w\W]*/gm),
         j = s(/^data-[\-\w.\u00B7-\uFFFF]+$/),
         q = s(/^aria-[\-\w]+$/),
-        X = s(/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|matrix):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i),
+        X = s(
+          /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|matrix):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i
+        ),
         $ = s(/^(?:\w+script|data):/i),
         K = s(/[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g),
         V = s(/^html$/i);
@@ -738,17 +759,32 @@
           MUSTACHE_EXPR: G,
           TMPLIT_EXPR: Y,
         });
-      let Q = { element: 1, text: 3, progressingInstruction: 7, comment: 8, document: 9 },
+      let Q = {
+          element: 1,
+          text: 3,
+          progressingInstruction: 7,
+          comment: 8,
+          document: 9,
+        },
         ee = function (e, t) {
-          if ('object' != typeof e || 'function' != typeof e.createPolicy) return null;
+          if ('object' != typeof e || 'function' != typeof e.createPolicy)
+            return null;
           let n = null,
             o = 'data-tt-policy-suffix';
           t && t.hasAttribute(o) && (n = t.getAttribute(o));
           let r = 'dompurify' + (n ? '#' + n : '');
           try {
-            return e.createPolicy(r, { createHTML: (e) => e, createScriptURL: (e) => e });
+            return e.createPolicy(r, {
+              createHTML: (e) => e,
+              createScriptURL: (e) => e,
+            });
           } catch (e) {
-            return (console.warn('TrustedTypes policy ' + r + ' could not be created.'), null);
+            return (
+              console.warn(
+                'TrustedTypes policy ' + r + ' could not be created.'
+              ),
+              null
+            );
           }
         },
         et = function () {
@@ -804,10 +840,19 @@
           e.content && e.content.ownerDocument && (i = e.content.ownerDocument);
         }
         let ei = '',
-          { implementation: ea, createNodeIterator: el, createDocumentFragment: ec, getElementsByTagName: es } = i,
+          {
+            implementation: ea,
+            createNodeIterator: el,
+            createDocumentFragment: ec,
+            getElementsByTagName: es,
+          } = i,
           { importNode: eu } = a,
           em = et();
-        r.isSupported = 'function' == typeof o && 'function' == typeof er && ea && void 0 !== ea.createHTMLDocument;
+        r.isSupported =
+          'function' == typeof o &&
+          'function' == typeof er &&
+          ea &&
+          void 0 !== ea.createHTMLDocument;
         let {
             MUSTACHE_EXPR: ep,
             ERB_EXPR: ef,
@@ -825,9 +870,24 @@
           eS = C({}, [...P, ...H, ...F, ...W]),
           ew = Object.seal(
             u(null, {
-              tagNameCheck: { writable: !0, configurable: !1, enumerable: !0, value: null },
-              attributeNameCheck: { writable: !0, configurable: !1, enumerable: !0, value: null },
-              allowCustomizedBuiltInElements: { writable: !0, configurable: !1, enumerable: !0, value: !1 },
+              tagNameCheck: {
+                writable: !0,
+                configurable: !1,
+                enumerable: !0,
+                value: null,
+              },
+              attributeNameCheck: {
+                writable: !0,
+                configurable: !1,
+                enumerable: !0,
+                value: null,
+              },
+              allowCustomizedBuiltInElements: {
+                writable: !0,
+                configurable: !1,
+                enumerable: !0,
+                value: !1,
+              },
             })
           ),
           eR = null,
@@ -915,22 +975,36 @@
             return e instanceof RegExp || e instanceof Function;
           },
           to = function () {
-            let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+            let e =
+              arguments.length > 0 && void 0 !== arguments[0]
+                ? arguments[0]
+                : {};
             if (!te || te !== e) {
               if (
                 ((e && 'object' == typeof e) || (e = {}),
                 (e = L(e)),
                 (e7 =
                   'application/xhtml+xml' ===
-                  (e4 = -1 === e5.indexOf(e.PARSER_MEDIA_TYPE) ? 'text/html' : e.PARSER_MEDIA_TYPE)
+                  (e4 =
+                    -1 === e5.indexOf(e.PARSER_MEDIA_TYPE)
+                      ? 'text/html'
+                      : e.PARSER_MEDIA_TYPE)
                     ? E
                     : y),
                 (eA = S(e, 'ALLOWED_TAGS') ? C({}, e.ALLOWED_TAGS, e7) : eb),
                 (eN = S(e, 'ALLOWED_ATTR') ? C({}, e.ALLOWED_ATTR, e7) : eS),
-                (e2 = S(e, 'ALLOWED_NAMESPACES') ? C({}, e.ALLOWED_NAMESPACES, E) : e9),
-                (eK = S(e, 'ADD_URI_SAFE_ATTR') ? C(L(eV), e.ADD_URI_SAFE_ATTR, e7) : eV),
-                (eX = S(e, 'ADD_DATA_URI_TAGS') ? C(L(e$), e.ADD_DATA_URI_TAGS, e7) : e$),
-                (ej = S(e, 'FORBID_CONTENTS') ? C({}, e.FORBID_CONTENTS, e7) : eq),
+                (e2 = S(e, 'ALLOWED_NAMESPACES')
+                  ? C({}, e.ALLOWED_NAMESPACES, E)
+                  : e9),
+                (eK = S(e, 'ADD_URI_SAFE_ATTR')
+                  ? C(L(eV), e.ADD_URI_SAFE_ATTR, e7)
+                  : eV),
+                (eX = S(e, 'ADD_DATA_URI_TAGS')
+                  ? C(L(e$), e.ADD_DATA_URI_TAGS, e7)
+                  : e$),
+                (ej = S(e, 'FORBID_CONTENTS')
+                  ? C({}, e.FORBID_CONTENTS, e7)
+                  : eq),
                 (eR = S(e, 'FORBID_TAGS') ? C({}, e.FORBID_TAGS, e7) : L({})),
                 (ev = S(e, 'FORBID_ATTR') ? C({}, e.FORBID_ATTR, e7) : L({})),
                 (eY = !!S(e, 'USE_PROFILES') && e.USE_PROFILES),
@@ -959,10 +1033,14 @@
                   (ew.tagNameCheck = e.CUSTOM_ELEMENT_HANDLING.tagNameCheck),
                 e.CUSTOM_ELEMENT_HANDLING &&
                   tn(e.CUSTOM_ELEMENT_HANDLING.attributeNameCheck) &&
-                  (ew.attributeNameCheck = e.CUSTOM_ELEMENT_HANDLING.attributeNameCheck),
+                  (ew.attributeNameCheck =
+                    e.CUSTOM_ELEMENT_HANDLING.attributeNameCheck),
                 e.CUSTOM_ELEMENT_HANDLING &&
-                  'boolean' == typeof e.CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements &&
-                  (ew.allowCustomizedBuiltInElements = e.CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements),
+                  'boolean' ==
+                    typeof e.CUSTOM_ELEMENT_HANDLING
+                      .allowCustomizedBuiltInElements &&
+                  (ew.allowCustomizedBuiltInElements =
+                    e.CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements),
                 ex && (eL = !1),
                 eP && (ez = !0),
                 eY &&
@@ -972,21 +1050,32 @@
                   !0 === eY.svg && (C(eA, x), C(eN, H), C(eN, W)),
                   !0 === eY.svgFilters && (C(eA, D), C(eN, H), C(eN, W)),
                   !0 === eY.mathMl && (C(eA, M), C(eN, F), C(eN, W))),
-                e.ADD_TAGS && (eA === eb && (eA = L(eA)), C(eA, e.ADD_TAGS, e7)),
-                e.ADD_ATTR && (eN === eS && (eN = L(eN)), C(eN, e.ADD_ATTR, e7)),
+                e.ADD_TAGS &&
+                  (eA === eb && (eA = L(eA)), C(eA, e.ADD_TAGS, e7)),
+                e.ADD_ATTR &&
+                  (eN === eS && (eN = L(eN)), C(eN, e.ADD_ATTR, e7)),
                 e.ADD_URI_SAFE_ATTR && C(eK, e.ADD_URI_SAFE_ATTR, e7),
-                e.FORBID_CONTENTS && (ej === eq && (ej = L(ej)), C(ej, e.FORBID_CONTENTS, e7)),
+                e.FORBID_CONTENTS &&
+                  (ej === eq && (ej = L(ej)), C(ej, e.FORBID_CONTENTS, e7)),
                 eG && (eA['#text'] = !0),
                 eI && C(eA, ['html', 'head', 'body']),
                 eA.table && (C(eA, ['tbody']), delete eR.tbody),
                 e.TRUSTED_TYPES_POLICY)
               ) {
                 if ('function' != typeof e.TRUSTED_TYPES_POLICY.createHTML)
-                  throw R('TRUSTED_TYPES_POLICY configuration option must provide a "createHTML" hook.');
+                  throw R(
+                    'TRUSTED_TYPES_POLICY configuration option must provide a "createHTML" hook.'
+                  );
                 if ('function' != typeof e.TRUSTED_TYPES_POLICY.createScriptURL)
-                  throw R('TRUSTED_TYPES_POLICY configuration option must provide a "createScriptURL" hook.');
+                  throw R(
+                    'TRUSTED_TYPES_POLICY configuration option must provide a "createScriptURL" hook.'
+                  );
                 ei = (t = e.TRUSTED_TYPES_POLICY).createHTML('');
-              } else (void 0 === t && (t = ee(q, l)), null !== t && 'string' == typeof ei && (ei = t.createHTML('')));
+              } else
+                (void 0 === t && (t = ee(q, l)),
+                  null !== t &&
+                    'string' == typeof ei &&
+                    (ei = t.createHTML('')));
               (c && c(e), (te = e));
             }
           },
@@ -1053,7 +1142,10 @@
             }
             'application/xhtml+xml' === e4 &&
               e0 === eQ &&
-              (e = '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' + e + '</body></html>');
+              (e =
+                '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' +
+                e +
+                '</body></html>');
             let r = t ? t.createHTML(e) : e;
             if (e0 === eQ)
               try {
@@ -1066,7 +1158,10 @@
               } catch (e) {}
             }
             let a = n.body || n.documentElement;
-            return (e && o && a.insertBefore(i.createTextNode(o), a.childNodes[0] || null), e0 === eQ)
+            return (e &&
+              o &&
+              a.insertBefore(i.createTextNode(o), a.childNodes[0] || null),
+            e0 === eQ)
               ? es.call(n, eI ? 'html' : 'body')[0]
               : eI
                 ? n.documentElement
@@ -1076,7 +1171,11 @@
             return el.call(
               e.ownerDocument || e,
               e,
-              G.SHOW_ELEMENT | G.SHOW_COMMENT | G.SHOW_TEXT | G.SHOW_PROCESSING_INSTRUCTION | G.SHOW_CDATA_SECTION,
+              G.SHOW_ELEMENT |
+                G.SHOW_COMMENT |
+                G.SHOW_TEXT |
+                G.SHOW_PROCESSING_INSTRUCTION |
+                G.SHOW_CDATA_SECTION,
               null
             );
           },
@@ -1104,7 +1203,8 @@
         }
         let td = function (e) {
             let t = null;
-            if ((tf(em.beforeSanitizeElements, e, null), tm(e))) return (tl(e), !0);
+            if ((tf(em.beforeSanitizeElements, e, null), tm(e)))
+              return (tl(e), !0);
             let n = e7(e.nodeName);
             if (
               (tf(em.uponSanitizeElement, e, { tagName: n, allowedTags: eA }),
@@ -1132,7 +1232,8 @@
                   let o = n.length;
                   for (let r = o - 1; r >= 0; --r) {
                     let o = K(n[r], !0);
-                    ((o.__removalCount = (e.__removalCount || 0) + 1), t.insertBefore(o, en(e)));
+                    ((o.__removalCount = (e.__removalCount || 0) + 1),
+                      t.insertBefore(o, en(e)));
                   }
                 }
               }
@@ -1148,26 +1249,35 @@
                   f([ep, ef, ed], (e) => {
                     t = A(t, e, ' ');
                   }),
-                  e.textContent !== t && (g(r.removed, { element: e.cloneNode() }), (e.textContent = t))),
+                  e.textContent !== t &&
+                    (g(r.removed, { element: e.cloneNode() }),
+                    (e.textContent = t))),
                 tf(em.afterSanitizeElements, e, null),
                 !1);
           },
           th = function (e, t, n) {
-            if (eF && ('id' === t || 'name' === t) && (n in i || n in tt)) return !1;
+            if (eF && ('id' === t || 'name' === t) && (n in i || n in tt))
+              return !1;
             if (eL && !ev[t] && w(eh, t));
             else if (eC && w(eg, t));
             else if (!eN[t] || ev[t]) {
               if (
                 !(
                   (tg(e) &&
-                    ((ew.tagNameCheck instanceof RegExp && w(ew.tagNameCheck, e)) ||
-                      (ew.tagNameCheck instanceof Function && ew.tagNameCheck(e))) &&
-                    ((ew.attributeNameCheck instanceof RegExp && w(ew.attributeNameCheck, t)) ||
-                      (ew.attributeNameCheck instanceof Function && ew.attributeNameCheck(t)))) ||
+                    ((ew.tagNameCheck instanceof RegExp &&
+                      w(ew.tagNameCheck, e)) ||
+                      (ew.tagNameCheck instanceof Function &&
+                        ew.tagNameCheck(e))) &&
+                    ((ew.attributeNameCheck instanceof RegExp &&
+                      w(ew.attributeNameCheck, t)) ||
+                      (ew.attributeNameCheck instanceof Function &&
+                        ew.attributeNameCheck(t)))) ||
                   ('is' === t &&
                     ew.allowCustomizedBuiltInElements &&
-                    ((ew.tagNameCheck instanceof RegExp && w(ew.tagNameCheck, n)) ||
-                      (ew.tagNameCheck instanceof Function && ew.tagNameCheck(n))))
+                    ((ew.tagNameCheck instanceof RegExp &&
+                      w(ew.tagNameCheck, n)) ||
+                      (ew.tagNameCheck instanceof Function &&
+                        ew.tagNameCheck(n))))
                 )
               )
                 return !1;
@@ -1190,7 +1300,13 @@
             tf(em.beforeSanitizeAttributes, e, null);
             let { attributes: n } = e;
             if (!n || tm(e)) return;
-            let o = { attrName: '', attrValue: '', keepAttr: !0, allowedAttributes: eN, forceKeepAttr: void 0 },
+            let o = {
+                attrName: '',
+                attrValue: '',
+                keepAttr: !0,
+                allowedAttributes: eN,
+                forceKeepAttr: void 0,
+              },
               i = n.length;
             for (; i--; ) {
               let { name: a, namespaceURI: l, value: c } = n[i],
@@ -1203,7 +1319,9 @@
                 (o.forceKeepAttr = void 0),
                 tf(em.uponSanitizeAttribute, e, o),
                 (u = o.attrValue),
-                eW && ('id' === s || 'name' === s) && (tc(a, e), (u = 'user-content-' + u)),
+                eW &&
+                  ('id' === s || 'name' === s) &&
+                  (tc(a, e), (u = 'user-content-' + u)),
                 eD && w(/((--!?|])>)|<\/(style|title)/i, u))
               ) {
                 tc(a, e);
@@ -1223,7 +1341,11 @@
                 tc(a, e);
                 continue;
               }
-              if (t && 'object' == typeof q && 'function' == typeof q.getAttributeType)
+              if (
+                t &&
+                'object' == typeof q &&
+                'function' == typeof q.getAttributeType
+              )
                 if (l);
                 else
                   switch (q.getAttributeType(m, s)) {
@@ -1235,7 +1357,8 @@
                   }
               if (u !== c)
                 try {
-                  (l ? e.setAttributeNS(l, a, u) : e.setAttribute(a, u), tm(e) ? tl(e) : h(r.removed));
+                  (l ? e.setAttributeNS(l, a, u) : e.setAttribute(a, u),
+                    tm(e) ? tl(e) : h(r.removed));
                 } catch (t) {
                   tc(a, e);
                 }
@@ -1246,44 +1369,69 @@
             let n = null,
               o = tu(t);
             for (tf(em.beforeSanitizeShadowDOM, t, null); (n = o.nextNode()); )
-              (tf(em.uponSanitizeShadowNode, n, null), td(n), tT(n), n.content instanceof s && e(n.content));
+              (tf(em.uponSanitizeShadowNode, n, null),
+                td(n),
+                tT(n),
+                n.content instanceof s && e(n.content));
             tf(em.afterSanitizeShadowDOM, t, null);
           };
         return (
           (r.sanitize = function (e) {
-            let n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            let n =
+                arguments.length > 1 && void 0 !== arguments[1]
+                  ? arguments[1]
+                  : {},
               o = null,
               i = null,
               l = null,
               c = null;
-            if (((e1 = !e) && (e = '\x3c!--\x3e'), 'string' != typeof e && !tp(e)))
+            if (
+              ((e1 = !e) && (e = '\x3c!--\x3e'), 'string' != typeof e && !tp(e))
+            )
               if ('function' == typeof e.toString) {
-                if ('string' != typeof (e = e.toString())) throw R('dirty is not a string, aborting');
+                if ('string' != typeof (e = e.toString()))
+                  throw R('dirty is not a string, aborting');
               } else throw R('toString is not a function');
             if (!r.isSupported) return e;
-            if ((eM || to(n), (r.removed = []), 'string' == typeof e && (eB = !1), eB)) {
+            if (
+              (eM || to(n),
+              (r.removed = []),
+              'string' == typeof e && (eB = !1),
+              eB)
+            ) {
               if (e.nodeName) {
                 let t = e7(e.nodeName);
-                if (!eA[t] || eR[t]) throw R('root node is forbidden and cannot be sanitized in-place');
+                if (!eA[t] || eR[t])
+                  throw R(
+                    'root node is forbidden and cannot be sanitized in-place'
+                  );
               }
             } else if (e instanceof p)
-              ((i = (o = ts('\x3c!----\x3e')).ownerDocument.importNode(e, !0)).nodeType === Q.element &&
+              ((i = (o = ts('\x3c!----\x3e')).ownerDocument.importNode(e, !0))
+                .nodeType === Q.element &&
                 'BODY' === i.nodeName) ||
               'HTML' === i.nodeName
                 ? (o = i)
                 : o.appendChild(i);
             else {
-              if (!ez && !ex && !eI && -1 === e.indexOf('<')) return t && eH ? t.createHTML(e) : e;
+              if (!ez && !ex && !eI && -1 === e.indexOf('<'))
+                return t && eH ? t.createHTML(e) : e;
               if (!(o = ts(e))) return ez ? null : eH ? ei : '';
             }
             o && eU && tl(o.firstChild);
             let u = tu(eB ? e : o);
-            for (; (l = u.nextNode()); ) (td(l), tT(l), l.content instanceof s && ty(l.content));
+            for (; (l = u.nextNode()); )
+              (td(l), tT(l), l.content instanceof s && ty(l.content));
             if (eB) return e;
             if (ez) {
-              if (eP) for (c = ec.call(o.ownerDocument); o.firstChild; ) c.appendChild(o.firstChild);
+              if (eP)
+                for (c = ec.call(o.ownerDocument); o.firstChild; )
+                  c.appendChild(o.firstChild);
               else c = o;
-              return ((eN.shadowroot || eN.shadowrootmode) && (c = eu.call(a, c, !0)), c);
+              return (
+                (eN.shadowroot || eN.shadowrootmode) && (c = eu.call(a, c, !0)),
+                c
+              );
             }
             let m = eI ? o.outerHTML : o.innerHTML;
             return (
@@ -1302,7 +1450,10 @@
             );
           }),
           (r.setConfig = function () {
-            let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+            let e =
+              arguments.length > 0 && void 0 !== arguments[0]
+                ? arguments[0]
+                : {};
             (to(e), (eM = !0));
           }),
           (r.clearConfig = function () {

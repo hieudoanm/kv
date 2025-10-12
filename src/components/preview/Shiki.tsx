@@ -8,7 +8,10 @@ export const Shiki: FC<{
   const [html, setHtml] = useState<string>('');
   useEffect(() => {
     const codeToHtmlAsync = async () => {
-      const html: string = await codeToHtml(code, { lang, theme: 'github-dark' });
+      const html: string = await codeToHtml(code, {
+        lang,
+        theme: 'github-dark',
+      });
       setHtml(html);
     };
     codeToHtmlAsync();

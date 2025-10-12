@@ -85,7 +85,8 @@
   ctx.beginPath();
   data.forEach((point, i) => {
     const x = leftPadding + (chartWidth / (data.length - 1)) * i;
-    const y = padding + ((maxValue - point) / (maxValue - minValue)) * chartHeight;
+    const y =
+      padding + ((maxValue - point) / (maxValue - minValue)) * chartHeight;
     if (i === 0) {
       ctx.moveTo(x, y);
     } else {

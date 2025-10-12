@@ -3,7 +3,12 @@
   [755],
   {
     755: (s, a, e) => {
-      (e.r(a), e.d(a, { default: () => n.Ay, getWasmInstance: () => n.En, wasmBinary: () => n.sh }));
+      (e.r(a),
+        e.d(a, {
+          default: () => n.Ay,
+          getWasmInstance: () => n.En,
+          wasmBinary: () => n.sh,
+        }));
       var n = e(1);
     },
   },

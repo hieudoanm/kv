@@ -1,6 +1,9 @@
 import { FC, useEffect, useRef } from 'react';
 
-export const BarChart: FC<{ data: number[]; labels: string[] }> = ({ data = [], labels = [] }) => {
+export const BarChart: FC<{ data: number[]; labels: string[] }> = ({
+  data = [],
+  labels = [],
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -39,7 +42,8 @@ export const BarChart: FC<{ data: number[]; labels: string[] }> = ({ data = [], 
     // Draw grid lines (vertical)
     const xSteps = labels.length;
     for (let i = 0; i < xSteps; i++) {
-      const x = leftPadding + (chartWidth / xSteps) * i + chartWidth / xSteps / 2;
+      const x =
+        leftPadding + (chartWidth / xSteps) * i + chartWidth / xSteps / 2;
       ctx.beginPath();
       ctx.moveTo(x, padding);
       ctx.lineTo(x, height - bottomPadding);
@@ -61,7 +65,8 @@ export const BarChart: FC<{ data: number[]; labels: string[] }> = ({ data = [], 
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
     for (let i = 0; i < labels.length; i++) {
-      const x = leftPadding + (chartWidth / xSteps) * i + chartWidth / xSteps / 2;
+      const x =
+        leftPadding + (chartWidth / xSteps) * i + chartWidth / xSteps / 2;
       ctx.fillText(labels[i], x, height - bottomPadding + 6);
     }
 
@@ -85,8 +90,13 @@ export const BarChart: FC<{ data: number[]; labels: string[] }> = ({ data = [], 
     const barWidth = chartWidth / xSteps / 2; // half of the segment width
     ctx.fillStyle = '#3b82f6'; // blue-500
     for (let i = 0; i < data.length; i++) {
-      const x = leftPadding + (chartWidth / xSteps) * i + chartWidth / xSteps / 2 - barWidth / 2;
-      const y = padding + ((maxValue - data[i]) / (maxValue - minValue)) * chartHeight;
+      const x =
+        leftPadding +
+        (chartWidth / xSteps) * i +
+        chartWidth / xSteps / 2 -
+        barWidth / 2;
+      const y =
+        padding + ((maxValue - data[i]) / (maxValue - minValue)) * chartHeight;
       const barHeight = height - bottomPadding - y;
 
       ctx.fillRect(x, y, barWidth, barHeight);
@@ -123,7 +133,12 @@ export const BarChart: FC<{ data: number[]; labels: string[] }> = ({ data = [], 
 
   return (
     <div className="w-full max-w-md rounded-lg border border-neutral-200 p-4 shadow dark:border-neutral-800 dark:shadow-neutral-100/10">
-      <canvas ref={canvasRef} width={400} height={200} className="h-auto w-full" />
+      <canvas
+        ref={canvasRef}
+        width={400}
+        height={200}
+        className="h-auto w-full"
+      />
     </div>
   );
 };

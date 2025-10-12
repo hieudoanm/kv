@@ -1,4 +1,13 @@
-import { CSSProperties, JSX, KeyboardEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  CSSProperties,
+  JSX,
+  KeyboardEvent,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 export interface Column<T> {
   key: keyof T;
@@ -11,7 +20,12 @@ interface VirtualTableProps<T> {
   data: T[];
   rowHeight: number;
   height: number;
-  renderCell?: (item: T, column: Column<T>, rowIndex: number, isSelected: boolean) => ReactNode;
+  renderCell?: (
+    item: T,
+    column: Column<T>,
+    rowIndex: number,
+    isSelected: boolean
+  ) => ReactNode;
 }
 
 export const VirtualTable = <T,>({
@@ -25,7 +39,9 @@ export const VirtualTable = <T,>({
   const [scrollTop, setScrollTop] = useState<number>(0);
 
   // Instead of a single selected index, we keep a set of selected row indexes
-  const [selectedIndexes, setSelectedIndexes] = useState<Set<number>>(new Set());
+  const [selectedIndexes, setSelectedIndexes] = useState<Set<number>>(
+    new Set()
+  );
 
   // Track the "anchor" index for shift-selection range
   const [anchorIndex, setAnchorIndex] = useState<number | null>(null);
@@ -73,7 +89,11 @@ export const VirtualTable = <T,>({
 
     // Get current focused index; if none, fallback to first selected or 0
     const focusedIndex =
-      anchorIndex !== null ? anchorIndex : selectedIndexes.size > 0 ? Math.min(...selectedIndexes) : 0;
+      anchorIndex !== null
+        ? anchorIndex
+        : selectedIndexes.size > 0
+          ? Math.min(...selectedIndexes)
+          : 0;
 
     if (e.key === 'ArrowDown') {
       e.preventDefault();
@@ -202,7 +222,9 @@ export const VirtualTable = <T,>({
                           className="border-b border-neutral-200 p-2 text-left dark:border-neutral-800"
                           style={{ width: col.width ?? 'auto' }}
                           role="gridcell">
-                          {renderCell ? renderCell(row, col, rowIndex, isSelected) : String(row[col.key])}
+                          {renderCell
+                            ? renderCell(row, col, rowIndex, isSelected)
+                            : String(row[col.key])}
                         </td>
                       ))}
                     </tr>

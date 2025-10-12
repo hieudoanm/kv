@@ -9,13 +9,22 @@ import { useState } from 'react';
 const DEV_PATH = '../../../..';
 const __dirname = join(dirname(__filename), DEV_PATH);
 
-type Util = { id: string; name: string; group: string; emoji: string; code: string };
+type Util = {
+  id: string;
+  name: string;
+  group: string;
+  emoji: string;
+  code: string;
+};
 
 const UtilsPage: NextPage<{ utils: Util[] }> = ({ utils = [] }) => {
   const [{ query = '' }, setState] = useState<{ query: string }>({ query: '' });
 
   const filteredUtils = utils.filter(({ id, name }) => {
-    return id.toLowerCase().includes(query.toLowerCase()) || name.toLowerCase().includes(query.toLowerCase());
+    return (
+      id.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return (
@@ -35,30 +44,49 @@ const UtilsPage: NextPage<{ utils: Util[] }> = ({ utils = [] }) => {
             {filteredUtils.length > 0 && (
               <>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-                  {filteredUtils.map(({ id = '', emoji = '', group, name = '' }) => {
-                    return (
-                      <Link href={`#${id}`} key={id}>
-                        <div className="col-span-1">
-                          <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
-                            <p className="text-2xl">{emoji}</p>
-                            <div className="flex flex-col gap-y-0.25">
-                              <p className="text-xs capitalize">{group}</p>
-                              <p className="font-semibold capitalize">{name}</p>
+                  {filteredUtils.map(
+                    ({ id = '', emoji = '', group, name = '' }) => {
+                      return (
+                        <Link href={`#${id}`} key={id}>
+                          <div className="col-span-1">
+                            <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
+                              <p className="text-2xl">{emoji}</p>
+                              <div className="flex flex-col gap-y-0.25">
+                                <p className="text-xs capitalize">{group}</p>
+                                <p className="font-semibold capitalize">
+                                  {name}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
+                        </Link>
+                      );
+                    }
+                  )}
                 </div>
                 <div className="flex flex-col gap-y-8">
-                  {filteredUtils.map(({ id = '', emoji = '', group = '', name = '', code = '' }) => {
-                    return (
-                      <div key={id} className="flex flex-col gap-y-4">
-                        <Code id={id} emoji={emoji} group={group} name={name} code={code} codeOnly />
-                      </div>
-                    );
-                  })}
+                  {filteredUtils.map(
+                    ({
+                      id = '',
+                      emoji = '',
+                      group = '',
+                      name = '',
+                      code = '',
+                    }) => {
+                      return (
+                        <div key={id} className="flex flex-col gap-y-4">
+                          <Code
+                            id={id}
+                            emoji={emoji}
+                            group={group}
+                            name={name}
+                            code={code}
+                            codeOnly
+                          />
+                        </div>
+                      );
+                    }
+                  )}
                 </div>
               </>
             )}
@@ -70,7 +98,13 @@ const UtilsPage: NextPage<{ utils: Util[] }> = ({ utils = [] }) => {
 };
 
 export const getStaticProps = () => {
-  const utils: { id: string; group: string; emoji: string; name: string; code: string }[] = [
+  const utils: {
+    id: string;
+    group: string;
+    emoji: string;
+    name: string;
+    code: string;
+  }[] = [
     { path: 'array/chunk', emoji: '📦', name: 'Chunk' },
     { path: 'array/compact', emoji: '🧹', name: 'Compact' },
     { path: 'array/difference', emoji: '➖', name: 'Difference' },

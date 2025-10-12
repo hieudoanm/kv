@@ -21,7 +21,10 @@ const UIBlockPage: NextPage<{ blocks: Component[] }> = ({ blocks = [] }) => {
   const [{ query = '' }, setState] = useState<{ query: string }>({ query: '' });
 
   const filteredComponents = blocks.filter(({ id, name }) => {
-    return id.toLowerCase().includes(query.toLowerCase()) || name.toLowerCase().includes(query.toLowerCase());
+    return (
+      id.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return (
@@ -36,35 +39,54 @@ const UIBlockPage: NextPage<{ blocks: Component[] }> = ({ blocks = [] }) => {
         <div className="container mx-auto px-8">
           <div className="flex flex-col gap-y-4 md:gap-y-8">
             <h2 className="text-2xl font-bold">
-              <span className="capitalize">Components</span> ({filteredComponents.length})
+              <span className="capitalize">Components</span> (
+              {filteredComponents.length})
             </h2>
             {filteredComponents.length > 0 && (
               <>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-                  {filteredComponents.map(({ id = '', emoji = '', group, name = '' }) => {
-                    return (
-                      <Link href={`#${id}`} key={id}>
-                        <div className="col-span-1">
-                          <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
-                            <p className="text-2xl">{emoji}</p>
-                            <div className="flex flex-col gap-y-0.25">
-                              <p className="text-xs capitalize">{group}</p>
-                              <p className="text-sm font-semibold capitalize">{name}</p>
+                  {filteredComponents.map(
+                    ({ id = '', emoji = '', group, name = '' }) => {
+                      return (
+                        <Link href={`#${id}`} key={id}>
+                          <div className="col-span-1">
+                            <div className="flex items-center gap-x-2 rounded-lg border border-neutral-200 bg-white/40 p-4 shadow dark:border-neutral-800 dark:bg-neutral-900/40 dark:shadow-neutral-100/10">
+                              <p className="text-2xl">{emoji}</p>
+                              <div className="flex flex-col gap-y-0.25">
+                                <p className="text-xs capitalize">{group}</p>
+                                <p className="text-sm font-semibold capitalize">
+                                  {name}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
+                        </Link>
+                      );
+                    }
+                  )}
                 </div>
                 <div className="flex flex-col gap-y-4 md:gap-y-8">
-                  {filteredComponents.map(({ id = '', emoji = '', group = '', name = '', code = '' }) => {
-                    return (
-                      <div key={id} className="flex flex-col gap-y-4">
-                        <Code id={id} emoji={emoji} group={group} name={name} code={code} />
-                      </div>
-                    );
-                  })}
+                  {filteredComponents.map(
+                    ({
+                      id = '',
+                      emoji = '',
+                      group = '',
+                      name = '',
+                      code = '',
+                    }) => {
+                      return (
+                        <div key={id} className="flex flex-col gap-y-4">
+                          <Code
+                            id={id}
+                            emoji={emoji}
+                            group={group}
+                            name={name}
+                            code={code}
+                          />
+                        </div>
+                      );
+                    }
+                  )}
                 </div>
               </>
             )}
@@ -89,8 +111,16 @@ export const getStaticProps = () => {
     { path: 'marketing/hero/linear', emoji: '🦸', name: 'Hero (Linear)' },
     { path: 'marketing/hero/solid', emoji: '🦸', name: 'Hero (Solid)' },
     { path: 'marketing/pricing', emoji: '💰', name: 'Pricing' },
-    { path: 'marketing/testimonials/linear', emoji: '💬', name: 'Testimonials (Linear)' },
-    { path: 'marketing/testimonials/solid', emoji: '💬', name: 'Testimonials (Solid)' },
+    {
+      path: 'marketing/testimonials/linear',
+      emoji: '💬',
+      name: 'Testimonials (Linear)',
+    },
+    {
+      path: 'marketing/testimonials/solid',
+      emoji: '💬',
+      name: 'Testimonials (Solid)',
+    },
     { path: 'mockup/browser', emoji: '🌐', name: 'Browser' },
     { path: 'mockup/phone', emoji: '📱', name: 'Phone' },
     { path: 'mockup/terminal', emoji: '🖥️', name: 'Terminal' },

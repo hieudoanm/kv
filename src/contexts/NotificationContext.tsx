@@ -1,4 +1,12 @@
-import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 export enum NotificationType {
   Info = 'info',
@@ -29,7 +37,9 @@ interface NotificationContextProps {
   removeNotification: (id: string) => void;
 }
 
-const NotificationContext = createContext<NotificationContextProps | undefined>(undefined);
+const NotificationContext = createContext<NotificationContextProps | undefined>(
+  undefined
+);
 
 export const NotificationProvider = ({ children }: { children: ReactNode }) => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -62,7 +72,13 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
     const id = crypto.randomUUID();
     const { title, dismissible = true, timeout = 3000 } = options ?? {};
 
-    const notification: Notification = { id, type, message, title, dismissible };
+    const notification: Notification = {
+      id,
+      type,
+      message,
+      title,
+      dismissible,
+    };
 
     setNotifications((prev) => {
       const exists = prev.some((n) => n.message === message && n.type === type);
@@ -85,11 +101,18 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
     [notifications]
   );
 
-  return <NotificationContext.Provider value={value}>{children}</NotificationContext.Provider>;
+  return (
+    <NotificationContext.Provider value={value}>
+      {children}
+    </NotificationContext.Provider>
+  );
 };
 
 export const useNotification = (): NotificationContextProps => {
   const context = useContext(NotificationContext);
-  if (!context) throw new Error('useNotification must be used within a NotificationProvider');
+  if (!context)
+    throw new Error(
+      'useNotification must be used within a NotificationProvider'
+    );
   return context;
 };

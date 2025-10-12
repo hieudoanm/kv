@@ -48,10 +48,18 @@ export function useBatteryStatus() {
 
     return () => {
       if (!batteryManager) return;
-      batteryManager.removeEventListener('chargingchange', () => updateBattery(batteryManager!));
-      batteryManager.removeEventListener('levelchange', () => updateBattery(batteryManager!));
-      batteryManager.removeEventListener('chargingtimechange', () => updateBattery(batteryManager!));
-      batteryManager.removeEventListener('dischargingtimechange', () => updateBattery(batteryManager!));
+      batteryManager.removeEventListener('chargingchange', () =>
+        updateBattery(batteryManager!)
+      );
+      batteryManager.removeEventListener('levelchange', () =>
+        updateBattery(batteryManager!)
+      );
+      batteryManager.removeEventListener('chargingtimechange', () =>
+        updateBattery(batteryManager!)
+      );
+      batteryManager.removeEventListener('dischargingtimechange', () =>
+        updateBattery(batteryManager!)
+      );
     };
   }, []);
 

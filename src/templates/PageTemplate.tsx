@@ -131,7 +131,8 @@ export const NAVBAR_LINKS: {
     href: '/ui/templates',
     text: 'Templates',
     full: 'UI Templates',
-    description: 'Pre-designed UI templates that speed up development by providing ready-made layouts and styles.',
+    description:
+      'Pre-designed UI templates that speed up development by providing ready-made layouts and styles.',
   },
   {
     group: 'tools',
@@ -176,12 +177,11 @@ export const PageTemplate: FC<PageTemplateProps> = ({
   description: defaultDescription = '',
   children = <></>,
 }) => {
-  const { emoji = defaultEmoji, description = defaultDescription } = NAVBAR_LINKS.find(
-    ({ id: linkId = '' }) => id === linkId
-  ) ?? {
-    emoji: defaultEmoji,
-    description: defaultDescription,
-  };
+  const { emoji = defaultEmoji, description = defaultDescription } =
+    NAVBAR_LINKS.find(({ id: linkId = '' }) => id === linkId) ?? {
+      emoji: defaultEmoji,
+      description: defaultDescription,
+    };
 
   const headTitle: string = `${emoji} ${title}`;
 
@@ -203,7 +203,11 @@ export const PageTemplate: FC<PageTemplateProps> = ({
         />
         <div className="scrollbar-none grow overflow-auto">
           <main className="divide-y divide-neutral-200 dark:divide-neutral-800">
-            <Hero emoji={emoji || defaultEmoji} title={title} description={description || defaultDescription} />
+            <Hero
+              emoji={emoji || defaultEmoji}
+              title={title}
+              description={description || defaultDescription}
+            />
             {children}
           </main>
           <Footer title={title} />

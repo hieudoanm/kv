@@ -4,7 +4,10 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import createDOMPurify from 'dompurify';
 
 const PreviewHtmlPage: NextPage = () => {
-  const [{ code, html }, setState] = useState<{ code: string; html: string }>({ code: '', html: '' });
+  const [{ code, html }, setState] = useState<{ code: string; html: string }>({
+    code: '',
+    html: '',
+  });
 
   useEffect(() => {
     const DOMPurify = createDOMPurify(window);
@@ -33,11 +36,17 @@ const PreviewHtmlPage: NextPage = () => {
                   const newCode: string = event.target.value;
                   const DOMPurify = createDOMPurify(window);
                   const newHTML: string = DOMPurify.sanitize(code);
-                  setState((previous) => ({ ...previous, code: newCode, html: newHTML }));
+                  setState((previous) => ({
+                    ...previous,
+                    code: newCode,
+                    html: newHTML,
+                  }));
                 }}></textarea>
             </div>
             <div className="col-span-1">
-              <div className="h-full w-full p-2 md:p-4" dangerouslySetInnerHTML={{ __html: html }}></div>
+              <div
+                className="h-full w-full p-2 md:p-4"
+                dangerouslySetInnerHTML={{ __html: html }}></div>
             </div>
           </div>
         </div>

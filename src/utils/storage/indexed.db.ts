@@ -4,7 +4,11 @@ interface IDBOptions {
   version?: number;
 }
 
-const openDB = ({ dbName, storeName, version = 1 }: IDBOptions): Promise<IDBDatabase> => {
+const openDB = ({
+  dbName,
+  storeName,
+  version = 1,
+}: IDBOptions): Promise<IDBDatabase> => {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(dbName, version);
 
@@ -23,7 +27,11 @@ const openDB = ({ dbName, storeName, version = 1 }: IDBOptions): Promise<IDBData
   });
 };
 
-export const setItem = async <T>(key: string, value: T, options: IDBOptions): Promise<void> => {
+export const setItem = async <T>(
+  key: string,
+  value: T,
+  options: IDBOptions
+): Promise<void> => {
   const db = await openDB(options);
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(options.storeName, 'readwrite');
@@ -38,7 +46,10 @@ export const setItem = async <T>(key: string, value: T, options: IDBOptions): Pr
   });
 };
 
-export const getItem = async <T>(key: string, options: IDBOptions): Promise<T | null> => {
+export const getItem = async <T>(
+  key: string,
+  options: IDBOptions
+): Promise<T | null> => {
   const db = await openDB(options);
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(options.storeName, 'readonly');
@@ -53,7 +64,10 @@ export const getItem = async <T>(key: string, options: IDBOptions): Promise<T | 
   });
 };
 
-export const deleteItem = async (key: string, options: IDBOptions): Promise<void> => {
+export const deleteItem = async (
+  key: string,
+  options: IDBOptions
+): Promise<void> => {
   const db = await openDB(options);
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(options.storeName, 'readwrite');

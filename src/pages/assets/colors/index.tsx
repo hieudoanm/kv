@@ -14,7 +14,9 @@ const ColorsPage = () => {
       <section className="py-8 md:py-16">
         <div className="container mx-auto px-8">
           <div className="mx-auto flex w-full max-w-2xl flex-col gap-y-4 md:gap-y-8">
-            <h2 className="text-center text-3xl font-bold capitalize">Colors</h2>
+            <h2 className="text-center text-3xl font-bold capitalize">
+              Colors
+            </h2>
             <div className="w-full overflow-y-auto">
               <table className="w-full">
                 <thead>
@@ -40,7 +42,10 @@ const ColorsPage = () => {
                         <td className="capitalize">{name}</td>
                         {Object.entries(shades).map(([shade, hex]) => {
                           return (
-                            <td align="center" key={`${shade}-${hex}`} className="p-1">
+                            <td
+                              align="center"
+                              key={`${shade}-${hex}`}
+                              className="p-1">
                               <button
                                 title={hex}
                                 className="aspect-square w-8 cursor-pointer rounded border border-neutral-200 shadow dark:border-neutral-800 dark:shadow-neutral-100/10"

@@ -14,7 +14,10 @@ const IconsPage: NextPage<{ icons: IconType[] }> = ({ icons = [] }) => {
   const [{ query = '' }, setState] = useState<{ query: string }>({ query: '' });
 
   const filteredIcons = icons.filter(({ id, name }) => {
-    return id.toLowerCase().includes(query.toLowerCase()) || name.toLowerCase().includes(query.toLowerCase());
+    return (
+      id.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return (
@@ -37,7 +40,9 @@ const IconsPage: NextPage<{ icons: IconType[] }> = ({ icons = [] }) => {
                   return (
                     <div key={id} className="col-span-1 flex flex-col gap-y-2">
                       <Icon name={name} code={code} />
-                      <p title="name" className="w-full truncate text-center text-xs">
+                      <p
+                        title="name"
+                        className="w-full truncate text-center text-xs">
                         {name}
                       </p>
                     </div>

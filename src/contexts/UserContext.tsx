@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+} from 'react';
 
 type User = {
   id: string | null;
@@ -11,7 +17,10 @@ type User = {
 type UserAction =
   | { type: 'LOGIN'; payload: Omit<User, 'isAuthenticated'> }
   | { type: 'LOGOUT' }
-  | { type: 'UPDATE_PROFILE'; payload: Partial<Omit<User, 'isAuthenticated' | 'token'>> };
+  | {
+      type: 'UPDATE_PROFILE';
+      payload: Partial<Omit<User, 'isAuthenticated' | 'token'>>;
+    };
 
 const defaultUser: User = {
   id: null,
@@ -48,7 +57,9 @@ function userReducer(state: User, action: UserAction): User {
   }
 }
 
-export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(userReducer, defaultUser, () => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('user');

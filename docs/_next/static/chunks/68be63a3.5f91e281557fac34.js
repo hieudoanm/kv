@@ -11,7 +11,8 @@
           ),
           (A) => A.charCodeAt(0)
         ),
-        E = async (A) => WebAssembly.instantiate(g, A).then((A) => A.instance.exports);
+        E = async (A) =>
+          WebAssembly.instantiate(g, A).then((A) => A.instance.exports);
     },
   ],
 ]);

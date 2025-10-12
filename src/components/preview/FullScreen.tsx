@@ -1,11 +1,11 @@
 import createDOMPurify from 'dompurify';
 import { FC, useEffect, useState } from 'react';
 
-export const FullScreen: FC<{ name: string; code: string; onClose: () => void }> = ({
-  name = '',
-  code = '',
-  onClose = () => {},
-}) => {
+export const FullScreen: FC<{
+  name: string;
+  code: string;
+  onClose: () => void;
+}> = ({ name = '', code = '', onClose = () => {} }) => {
   const [html, setHtml] = useState('');
 
   useEffect(() => {
@@ -26,7 +26,9 @@ export const FullScreen: FC<{ name: string; code: string; onClose: () => void }>
         </div>
       </div>
       <div className="grow overflow-y-auto p-4 md:p-8">
-        <div className="w-full" dangerouslySetInnerHTML={{ __html: html }}></div>
+        <div
+          className="w-full"
+          dangerouslySetInnerHTML={{ __html: html }}></div>
       </div>
     </div>
   );

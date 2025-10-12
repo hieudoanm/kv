@@ -24,7 +24,8 @@
   const minValue = 0;
 
   const getX = (i) => leftPadding + (chartWidth / (data.length - 1)) * i;
-  const getY = (val) => padding + ((maxValue - val) / (maxValue - minValue)) * chartHeight;
+  const getY = (val) =>
+    padding + ((maxValue - val) / (maxValue - minValue)) * chartHeight;
 
   // Grid
   ctx.strokeStyle = '#e5e7eb';

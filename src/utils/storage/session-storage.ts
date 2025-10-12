@@ -41,5 +41,10 @@ export const clearSessionStorage = (): void => {
 };
 
 export const SessionStorage = () => {
-  return { set: setSessionStorage, get: getSessionStorage, remove: removeSessionStorage, clear: clearSessionStorage };
+  return {
+    set: setSessionStorage,
+    get: getSessionStorage,
+    remove: removeSessionStorage,
+    clear: clearSessionStorage,
+  };
 };

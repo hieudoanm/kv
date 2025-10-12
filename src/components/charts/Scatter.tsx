@@ -148,7 +148,12 @@ export const ScatterChart: FC<{
 
   return (
     <div className="w-full max-w-md rounded-lg border border-neutral-200 p-4 shadow dark:border-neutral-800 dark:shadow-neutral-100/10">
-      <canvas ref={canvasRef} width={400} height={300} className="h-auto w-full" />
+      <canvas
+        ref={canvasRef}
+        width={400}
+        height={300}
+        className="h-auto w-full"
+      />
     </div>
   );
 };

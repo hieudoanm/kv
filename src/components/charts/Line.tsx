@@ -1,6 +1,9 @@
 import { FC, useEffect, useRef } from 'react';
 
-export const LineChart: FC<{ data: number[]; labels: string[] }> = ({ data = [], labels = [] }) => {
+export const LineChart: FC<{ data: number[]; labels: string[] }> = ({
+  data = [],
+  labels = [],
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -85,7 +88,8 @@ export const LineChart: FC<{ data: number[]; labels: string[] }> = ({ data = [],
     ctx.beginPath();
     data.forEach((point, i) => {
       const x = leftPadding + (chartWidth / (data.length - 1)) * i;
-      const y = padding + ((maxValue - point) / (maxValue - minValue)) * chartHeight;
+      const y =
+        padding + ((maxValue - point) / (maxValue - minValue)) * chartHeight;
       if (i === 0) {
         ctx.moveTo(x, y);
       } else {
@@ -125,7 +129,12 @@ export const LineChart: FC<{ data: number[]; labels: string[] }> = ({ data = [],
 
   return (
     <div className="w-full max-w-md rounded-lg border border-neutral-200 p-4 shadow md:p-8 dark:border-neutral-800 dark:shadow-neutral-100/10">
-      <canvas ref={canvasRef} width={400} height={200} className="h-auto w-full" />
+      <canvas
+        ref={canvasRef}
+        width={400}
+        height={200}
+        className="h-auto w-full"
+      />
     </div>
   );
 };
