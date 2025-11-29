@@ -51,7 +51,7 @@
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@types/web-bluetooth": "0.0.21",
-    "baseline-browser-mapping": "^2.8.32",
+    "baseline-browser-mapping": "2.8.32",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.5",
     "husky": "9.1.7",
