@@ -5,10 +5,13 @@ import { PageTemplate } from '@atomic/templates/PageTemplate';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const DEV_PATH =
   process.env.NODE_ENV === 'development' ? '../../../..' : '../../../../..';
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(dirname(__filename), DEV_PATH);
+console.log(__dirname);
 
 type TemplateType = { id: string; name: string; code: string };
 

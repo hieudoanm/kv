@@ -3,10 +3,13 @@ import { PageTemplate } from '@atomic/templates/PageTemplate';
 import { NextPage } from 'next';
 import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { useState } from 'react';
 
 const DEV_PATH = '../../../..';
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(dirname(__filename), DEV_PATH);
+console.log(__dirname);
 
 type IconType = { id: string; name: string; code: string };
 

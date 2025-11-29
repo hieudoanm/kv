@@ -12,10 +12,13 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ReactNode, useState } from 'react';
 
 const DEV_PATH = '../../../..';
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(dirname(__filename), DEV_PATH);
+console.log(__dirname);
 
 type ChartType = { id: string; name: string; code: string };
 

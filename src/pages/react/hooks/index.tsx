@@ -4,10 +4,13 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { useState } from 'react';
 
 const DEV_PATH = '../../../..';
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(dirname(__filename), DEV_PATH);
+console.log(__dirname);
 
 type Hook = {
   id: string;
