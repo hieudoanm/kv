@@ -42,7 +42,7 @@
     "next": "16.0.6",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "shiki": "3.18.0"
+    "shiki": "3.19.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.3",
@@ -53,10 +53,10 @@
     "@types/web-bluetooth": "0.0.21",
     "baseline-browser-mapping": "2.8.32",
     "eslint": "9.39.1",
-    "eslint-config-next": "16.0.6",
+    "eslint-config-next": "16.0.7",
     "husky": "9.1.7",
     "kill-port": "2.0.1",
-    "prettier": "3.7.3",
+    "prettier": "3.7.4",
     "prettier-plugin-tailwindcss": "0.7.2",
     "rimraf": "6.1.2",
     "tailwindcss": "4.1.17",
