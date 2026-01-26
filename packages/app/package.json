@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "atomic/code",
-  "packageManager": "pnpm@10.28.1",
+  "packageManager": "pnpm@10.28.2",
   "keywords": [
     "atomic",
     "blocks",
