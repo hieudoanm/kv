@@ -6,11 +6,6 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { useState } from 'react';
 
-const DEV_PATH = '../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 type IconType = { id: string; name: string; code: string };
 
 const IconsPage: NextPage<{ icons: IconType[] }> = ({ icons = [] }) => {
@@ -61,6 +56,10 @@ const IconsPage: NextPage<{ icons: IconType[] }> = ({ icons = [] }) => {
 };
 
 export const getStaticProps = () => {
+  const DEV_PATH = '../../../..';
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = join(dirname(__filename), DEV_PATH);
+
   const folders = readdirSync(join(__dirname, 'src/html/icons'));
   let icons: IconType[] = [];
   for (const folder of folders) {

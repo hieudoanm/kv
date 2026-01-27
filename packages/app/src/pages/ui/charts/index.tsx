@@ -15,11 +15,6 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ReactNode, useState } from 'react';
 
-const DEV_PATH = '../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 type ChartType = { id: string; name: string; code: string };
 
 const emojis: Record<string, string> = {
@@ -171,6 +166,10 @@ const ChartsPage: NextPage<{ charts: ChartType[] }> = ({ charts = [] }) => {
 };
 
 export const getStaticProps = () => {
+  const DEV_PATH = '../../../..';
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = join(dirname(__filename), DEV_PATH);
+
   const files = readdirSync(join(__dirname, 'src/html/charts'));
   const charts = files.map((file: string) => {
     const id: string = file?.replaceAll('.html', '');

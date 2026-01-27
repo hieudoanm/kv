@@ -7,11 +7,6 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { useState } from 'react';
 
-const DEV_PATH = '../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 type TemplateType = { id: string; group: string; name: string; code: string };
 
 const emojis: Record<string, string> = {
@@ -102,6 +97,10 @@ const TemplatesPage: NextPage<{ templates: TemplateType[] }> = ({
 };
 
 const getTemplates = (group: string) => {
+  const DEV_PATH = '../../../..';
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = join(dirname(__filename), DEV_PATH);
+
   const files = readdirSync(join(__dirname, `src/html/templates/${group}`));
   const templates = files.map((file: string) => {
     const id: string = file?.replaceAll('.html', '');

@@ -7,11 +7,6 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { useState } from 'react';
 
-const DEV_PATH = '../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 type Util = {
   id: string;
   name: string;
@@ -137,6 +132,10 @@ export const getStaticProps = () => {
     { path: 'storage/local-storage', emoji: '🗄️', name: 'Local Storage' },
     { path: 'storage/session-storage', emoji: '📦', name: 'Session Storage' },
   ].map(({ path = '', emoji = '', name = '' }) => {
+    const DEV_PATH = '../../../..';
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = join(dirname(__filename), DEV_PATH);
+
     const group = path.split('/').at(0) ?? 'utils';
     const id = path.replaceAll('/', '-');
     const utilPath = `${__dirname}/src/utils/${path}.ts`;

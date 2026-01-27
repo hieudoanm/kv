@@ -7,12 +7,6 @@ import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const DEV_PATH =
-  process.env.NODE_ENV === 'development' ? '../../../..' : '../../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 type TemplateType = { id: string; name: string; code: string };
 
 const TemplatePage: NextPage<{ template: TemplateType }> = ({
@@ -71,6 +65,11 @@ export const getStaticProps: GetStaticProps<
   { template: TemplateType },
   { id: string }
 > = (context) => {
+  const DEV_PATH =
+    process.env.NODE_ENV === 'development' ? '../../../..' : '../../../../..';
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = join(dirname(__filename), DEV_PATH);
+
   const id = context?.params?.id ?? '';
   const desktopPath: string = join(
     __dirname,

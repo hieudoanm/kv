@@ -6,11 +6,6 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const DEV_PATH = '../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 const RouterPage: NextPage<{ code: string }> = ({ code = '' }) => {
   return (
     <PageTemplate
@@ -52,6 +47,10 @@ const RouterPage: NextPage<{ code: string }> = ({ code = '' }) => {
 };
 
 export const getStaticProps = () => {
+  const DEV_PATH = '../../../..';
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = join(dirname(__filename), DEV_PATH);
+
   const routerFilePath = `${__dirname}/src/components/common/Router.tsx`;
   const code = readFileSync(routerFilePath, 'utf-8');
   return { props: { code } };

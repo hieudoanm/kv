@@ -6,11 +6,6 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const DEV_PATH = '../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 const VirtualTablePage: NextPage<{ code: string }> = ({ code = '' }) => {
   return (
     <PageTemplate
@@ -40,6 +35,10 @@ const VirtualTablePage: NextPage<{ code: string }> = ({ code = '' }) => {
 };
 
 export const getStaticProps = () => {
+  const DEV_PATH = '../../../..';
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = join(dirname(__filename), DEV_PATH);
+
   const virtualTableFilePath = `${__dirname}/src/components/common/VirtualTable.tsx`;
   const code = readFileSync(virtualTableFilePath, 'utf-8');
   return { props: { code } };

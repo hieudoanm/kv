@@ -7,11 +7,6 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { useState } from 'react';
 
-const DEV_PATH = '../../../..';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(dirname(__filename), DEV_PATH);
-console.log(__dirname);
-
 type Component = {
   id: string;
   group: string;
@@ -135,6 +130,10 @@ export const getStaticProps = () => {
     { path: 'navigation/steps', emoji: '🪜', name: 'Steps' },
     { path: 'navigation/tabs', emoji: '📑', name: 'Tabs' },
   ].map(({ path = '', emoji = '', name = '' }) => {
+    const DEV_PATH = '../../../..';
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = join(dirname(__filename), DEV_PATH);
+
     const group = path.split('/').at(0);
     const id = path.replaceAll('/', '-');
     const componentPath = `${__dirname}/src/html/block/${path}.html`;
