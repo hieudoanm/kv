@@ -1,17 +1,17 @@
 {
-  "name": "@atomic/workspaces",
+  "name": "@eyes/workspaces",
   "version": "0.0.1",
-  "description": "atomic",
+  "description": "eyes",
   "keywords": [
-    "atomic"
+    "eyes"
   ],
-  "homepage": "https://hieudoanm.github.io/atomic",
+  "homepage": "https://hieudoanm.github.io/eyes",
   "bugs": {
-    "url": "https://github.com/hieudoanm/atomic/issues"
+    "url": "https://github.com/hieudoanm/eyes/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/hieudoanm/atomic.git"
+    "url": "git+ssh://git@github.com/hieudoanm/eyes.git"
   },
   "license": "GPL-3.0",
   "author": "hieudoanm <hieumdoan@gmail.com> (https://hieudoanm.github.io)",

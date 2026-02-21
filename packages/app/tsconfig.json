@@ -14,7 +14,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "paths": {
-      "@atomic/*": ["./src/*"]
+      "@eyes/*": ["./src/*"]
     }
   },
   "include": ["packages/app/next-env.d.ts", "**/*.ts", "**/*.tsx"],
