@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "eyes/code",
-  "packageManager": "pnpm@10.30.2",
+  "packageManager": "pnpm@10.30.3",
   "keywords": [
     "eyes"
   ],
