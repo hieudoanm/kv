@@ -21,11 +21,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Eyes</title>
-        <link
-          rel="icon"
-          href={`${BASE_PATH}/favicon.ico`}
-          type="image/x-icon"
-        />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <div className={`${geistSans.className} ${geistMono.className}`}>
         <Component {...pageProps} />
