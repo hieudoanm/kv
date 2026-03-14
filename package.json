@@ -1,17 +1,18 @@
 {
-  "name": "@eyes/workspaces",
+  "name": "@kv/workspaces",
   "version": "0.0.1",
-  "description": "eyes",
+  "description": "kv",
   "keywords": [
-    "eyes"
+    "key",
+    "value"
   ],
-  "homepage": "https://hieudoanm.github.io/eyes",
+  "homepage": "https://hieudoanm.github.io/kv",
   "bugs": {
-    "url": "https://github.com/hieudoanm/eyes/issues"
+    "url": "https://github.com/hieudoanm/kv/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/hieudoanm/eyes.git"
+    "url": "git+ssh://git@github.com/hieudoanm/kv.git"
   },
   "license": "GPL-3.0",
   "author": "hieudoanm <hieumdoan@gmail.com> (https://hieudoanm.github.io)",

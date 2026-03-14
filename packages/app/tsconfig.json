@@ -14,7 +14,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "paths": {
-      "@eyes/*": ["./src/*"]
+      "@kv/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.mts"],

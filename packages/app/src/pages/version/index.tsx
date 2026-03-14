@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import { VersionTemplate } from '@eyes/templates/VersionTemplate';
+import { VersionTemplate } from '@kv/templates/VersionTemplate';
 
 type Props = {
   version: string;

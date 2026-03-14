@@ -1,4 +1,4 @@
-import { ErrorTemplate } from '@eyes/templates/ErrorTemplate';
+import { ErrorTemplate } from '@kv/templates/ErrorTemplate';
 import { NextPage } from 'next';
 
 const messages = [

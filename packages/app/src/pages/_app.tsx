@@ -1,4 +1,4 @@
-import '@eyes/styles/globals.css';
+import '@kv/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Head from 'next/head';
