@@ -1,7 +1,7 @@
 import '@sqlite/styles/globals.css';
+import { HeadTemplate } from '../templates/HeadTemplate';
 import type { AppProps } from 'next/app';
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
-import Head from 'next/head';
 import { FC } from 'react';
 
 const playfairDisplay = Playfair_Display({
@@ -23,11 +23,7 @@ const geistMono = Geist_Mono({
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
-      <Head>
-        <title>SQLite Dashboard</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
+      <HeadTemplate basic={{ title: 'SQLite Dashboard' }} />
       <div
         className={`${playfairDisplay.className} ${geistSans.className} ${geistMono.className}`}>
         <Component {...pageProps} />
