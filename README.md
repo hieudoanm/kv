@@ -39,6 +39,9 @@ Sqlite is a focused project in this monorepo that delivers a practical tool with
 - 💻 [CLI](https://github.com/hieudoanm/sqlite/releases)
 - 📱 [Mobile](https://github.com/hieudoanm/sqlite/releases)
 - 🖥️ [Desktop](https://github.com/hieudoanm/sqlite/releases)
+  - 🍎 [MacOS](https://github.com/hieudoanm/sqlite/releases/tag/macos-latest)
+  - 🐧 [Ubuntu](https://github.com/hieudoanm/sqlite/releases/tag/ubuntu-latest)
+  - 🪟 [Windows](https://github.com/hieudoanm/sqlite/releases/tag/windows-latest)
 
 ## 🛠️ 5. Development Stack
 
